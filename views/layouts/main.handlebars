@@ -1,0 +1,92 @@
+<html lang="en" data-theme="Attaplumbing">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css" />
+  <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.snow.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bonbon&family=Curlz&family=Lora&family=Rye&display=swap"
+    rel="stylesheet">
+
+
+  <title>Attaplumbing</title>
+  <meta name="description" content="Under Contruction Please come back soon!" />
+  <meta name="keywords" content="Resell, Product-Revival, Ecommerce, " />
+
+  <link rel="styleSheet" href="/assets/CSS/font.css" />
+  <link rel="styleSheet" href="/assets/CSS/tailwind.css" />
+  <link rel="icon" href="/assets/imgs/Attaplumbing_icon-01-01.webp" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  {{! Fonts }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
+
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AcWE8MGU19mQYfuey2CA4vHyYLTK0WRwKwytNmSWvEbQCNeSd_hujWZYQE4JVouZ_rKoIkY2waCnlj_n&currency=USD"
+    data-sdk-integration-source="developer-studio"></script>
+
+</head>
+
+<body class="mx-10 mt-5">
+  <header>
+
+    {{#if (includes currentPath "/admin")}}
+    {{#if isLoggedIn }}
+    {{!-- Render admin nav if user is logged in --}}
+    <style>
+      html {
+        background-image: url('/assets/imgs/real-home-back-2.png');
+      }
+    </style>
+    {{> admin-nav }}
+    {{else}}
+    {{!-- Render regular nav if user is not logged in but accessing admin route --}}
+    {{> nav }}
+    {{/if}}
+    {{else}}
+
+    {{!-- render for logged in users while splash exisists --}}
+    {{> nav }}
+
+    {{/if}}
+
+  </header>
+  <div style="display: none;"></div>
+  {{{body}}}
+
+    <!-- Powered By -->
+    <p class="flex items-center">
+      <img src="/assets/imgs/queue.jpg" alt="Queue Development Logo" class="w-8 mr-2" />
+      <a href="https://queuedevelop.com" target="_blank" class=" text-egyptianBlue-950 hover:underline">
+        Powered by Queue Development
+      </a>
+    </p>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="/assets/js/pageChange.js"></script>
+  <script src="/assets/js/addToCart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+
+</html>

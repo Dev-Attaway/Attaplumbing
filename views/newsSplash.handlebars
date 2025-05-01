@@ -1,0 +1,78 @@
+<div
+  class="bg-white text-gray-800 min-h-screen flex flex-col items-center px-4 py-10 space-y-10"
+>
+
+  <!-- Logo -->
+  <div class="w-full max-w-xs">
+    <img
+      src="/assets/imgs/Attaplumbing_Logo.jpg"
+      alt="Company Logo"
+      class="w-full object-contain"
+    />
+  </div>
+
+  <!-- Disclaimer Text -->
+  <div class="text-center max-w-2xl px-4">
+    <h2 class="text-xl font-semibold text-gray-900 mb-2">Curated Picks, Direct
+      from Source</h2>
+
+    <p class="text-gray-600 leading-relaxed">
+      We work directly with trusted OEM manufacturers to bring you high-quality
+      picks — no retail fluff, just curated essentials at honest prices.
+    </p>
+  </div>
+
+  <!-- Boxy Form Container -->
+  <div
+    class="w-full max-w-3xl bg-white border border-gray-200 rounded-xl p-10 shadow-lg text-center space-y-14"
+  >
+
+    <!-- Newsletter Form -->
+    <div>
+      <h1 class="text-3xl font-bold mb-4">Coming Soon!</h1>
+      <p class="text-gray-600 mb-6">Our platform is launching soon. Get notified
+        when we go live!</p>
+
+      <form id="newsletterForm" class="space-y-5 max-w-lg mx-auto">
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <button
+          type="submit"
+          class="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition"
+        >
+          Notify Me
+        </button>
+        <p id="newsletterMessage" class="text-sm mt-2"></p>
+      </form>
+    </div>
+
+    <!-- Social Media Links -->
+    {{! <div>
+      <h5 class="text-lg font-bold mb-3">Connect With Us</h5>
+      <div class="flex justify-center space-x-8 text-3xl">
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@yourhandle" target="_blank" class="text-black hover:text-gray-800">
+          <i class="fab fa-tiktok"></i>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" class="text-pink-500 hover:text-gray-800">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:support@queuedevelop.com" class="text-blue-500 hover:text-gray-800">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div> }}
+
+  </div>
+</div>
+
+<script src="/assets/js/newsletter.js"></script>

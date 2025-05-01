@@ -1,0 +1,112 @@
+<nav class="navbar bg-base-100 text-secondary-content border-t-primary border-r-primary border-l-primary border-t-2 border-r-2 border-l-2 relative justify-between z-40">
+  <!-- Logo - Left Side -->
+  <div class="flex-none">
+    <a href="/" class="btn btn-ghost text-5xl font-DMsans italic font-bold px-2">Attaplumbing</a>
+  </div>
+
+  <!-- Navigation Links - Middle -->
+  <div class="md:flex-1 md:flex md:justify-center justify-between hidden">
+    <ul class="menu menu-horizontal mobile-menu px-1 gap-2" id="navbarScroll">
+      <template id="nav-link-template">
+        <li>
+          <a href="#" 
+            class="nav-link text-xl font-semibold rounded-btn
+                  text-primary hover:text-primary-focus hover:bg-primary/10
+                  transition-all duration-300 ease-out
+                  relative after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5
+                  after:bg-primary after:scale-x-0 after:origin-left
+                  after:transition-transform after:duration-300
+                  hover:after:scale-x-100 focus-visible:after:scale-x-100">
+            <!-- Link text will be injected here -->
+          </a>
+        </li>
+      </template>
+    </ul>
+  </div>
+  
+  <!-- Mobile Menu Button -->
+  <div class="flex-none md:hidden">
+    <button class="btn btn-square btn-ghost" id="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="md:hidden hidden" id="mobile-menu">
+  <ul class="menu bg-base-100 w-full">
+    <!-- Links will be injected here same as desktop -->
+  </ul>
+</div>
+</div>
+
+<script>
+  // Link injection
+  const links = [
+    { text: "About", href: "/about" },
+    { text: "Services", href: "/services" },
+    { text: "How It Works", href: "/how-it-works" },
+    { text: "Contact", href: "/Contact" },
+  ];
+
+  const navList = document.querySelector("#navbarScroll");
+  const mobileNavList = document.querySelector("#mobile-menu ul");
+  const template = document.querySelector("#nav-link-template");
+
+  links.forEach(link => {
+    // Desktop links
+    const desktopClone = template.content.cloneNode(true);
+    const desktopAnchor = desktopClone.querySelector("a");
+    desktopAnchor.href = link.href;
+    desktopAnchor.textContent = link.text;
+    navList.appendChild(desktopClone);
+    
+    // Mobile links
+    const mobileLi = document.createElement("li");
+    const mobileAnchor = document.createElement("a");
+    mobileAnchor.href = link.href;
+    mobileAnchor.textContent = link.text;
+    mobileAnchor.className = "text-primary hover:bg-primary/10 p-4 text-lg";
+    mobileLi.appendChild(mobileAnchor);
+    mobileNavList.appendChild(mobileLi);
+  });
+
+  // Mobile menu toggle
+  document.getElementById("mobile-menu-btn").addEventListener("click", () => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu.classList.toggle("hidden");
+    
+    // Toggle aria-expanded attribute for accessibility
+    const menuButton = document.getElementById("mobile-menu-btn");
+    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", !isExpanded);
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (event) => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuButton = document.getElementById("mobile-menu-btn");
+    
+    if (!mobileMenu.classList.contains("hidden") && 
+        !menuButton.contains(event.target) && 
+        !mobileMenu.contains(event.target)) {
+      mobileMenu.classList.add("hidden");
+      menuButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Initialize
+  document.addEventListener("DOMContentLoaded", () => {    
+    // Underline animation setup
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+      const width = link.offsetWidth;
+      link.parentElement.style.setProperty("--distance", `${width}px`);
+    });
+    
+    // Set initial aria-expanded state
+    document.getElementById("mobile-menu-btn").setAttribute("aria-expanded", "false");
+  });
+</script>

@@ -1,0 +1,9 @@
+[
+  {
+    "id": 2,
+    "username": "QuentinHnilica",
+    "email": "FakeEmail@Yahoo.com",
+    "password": "Pass123",
+    "isAdmin": true
+  }
+]

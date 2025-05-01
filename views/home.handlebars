@@ -1,0 +1,117 @@
+<div class="bg-RFRhomeBg bg-cover bg-center bg-no-repeat bg-fixed shadow-inner overflow-x-hidden">
+  <!-- Hero Section -->
+  <div class="mx-auto my-8 md:my-16 lg:my-32 h-fit min-h-[40vh] p-4 flex items-center justify-center">
+    <!-- Lily Pad Container -->
+  </div>
+
+  <!-- Featured Products Section -->
+  <div class="swiper-container w-full py-5 bg-base-100 bg-opacity-80">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold capitalize">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent uppercase tracking-wide drop-shadow-sm">
+          Attaplumbing supplies
+        </span>
+      </h1>
+      <p class="text-2xl font-semibold tracking-wide capitalize text-primary">
+        So you don't have to
+      </p>
+    </div>
+    <div class="swiper-wrapper flex h-auto">
+      {{#each products}}
+      <div class="swiper-slide justify-center h-auto my-6">
+        <!-- Product Card -->
+        <div class="bg-base-100 border w-[300px] h-[450px] border-primary hover:border-b-4 hover:border-r-4 grid grid-cols-1 rounded-xl overflow-hidden hover:shadow-xl shadow-primary transition-all duration-300 scale-95 hover:scale-100">
+          <!-- Product Image -->
+          <a href="/product/{{this.id}}" class="block relative group flex-shrink-0">
+            <div class="aspect-square bg-neutral flex items-center justify-center">
+              <img 
+                class="w-full h-full object-cover" 
+                src="{{this.image}}" 
+                alt="{{this.description}}" 
+                loading="lazy" 
+              />
+            </div>
+            <!-- Price Overlay -->
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-neutral/60 to-transparent">
+              <span class="text-base-100 font-medium text-lg">${{this.price}}</span>
+            </div>
+          </a>
+
+          <!-- Product Details -->
+          <div class="p-5 space-y-3 flex flex-col flex-grow">
+            <!-- Product Title -->
+            <a href="/product/{{this.id}}" class="block">
+              <h3 class="text-xl font-bold text-base-content hover:text-primary transition-colors">
+                {{this.productName}}
+              </h3>
+            </a>
+
+            <!-- Product Actions -->
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <!-- Add to Cart Button -->
+              <button 
+                onclick="addToCart({{this.id}})"
+                class="relative w-full text-primary-content rounded-lg overflow-hidden transition-transform duration-300 focus:ring focus:ring-primary focus:outline-none text-center hover:scale-[1.02] group"
+              >
+                <span class="relative z-10">Add to Cart</span>
+                <span class="absolute inset-0 bg-gradient-to-tr from-primary to-accent transition-opacity duration-300 opacity-100 group-hover:opacity-0"></span>
+                <span class="absolute inset-0 bg-gradient-to-tr from-accent to-primary transition-opacity duration-300 opacity-0 group-hover:opacity-100"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="relative w-full overflow-hidden py-20 sm:py-28">
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8 z-20">
+      <!-- Header Section -->
+      <div class="mx-auto max-w-3xl lg:text-center space-y-6">
+        <div class="mb-8">
+          <p class="text-5xl font-semibold text-primary-content leading-tight">
+            Attaplumbing Supplies,<br>
+            So You Don't Have To
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      speed: 600,
+      breakpoints: {
+        1920: { slidesPerView: 4, spaceBetween: 10 },
+        1024: { slidesPerView: 3, spaceBetween: 10 },
+        768: { slidesPerView: 2, spaceBetween: 10 },
+        430: { slidesPerView: 1, spaceBetween: 10 },
+      },
+      autoplay: {
+        delay: 8000,
+        disableOnInteraction: false,
+      },
+      effect: 'slide'
+    });
+  });
+</script>
+
+<style>
+  .swiper-wrapper {
+    height: fit-content;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: inline-flex;
+  }
+</style>

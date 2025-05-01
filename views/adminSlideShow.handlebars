@@ -1,0 +1,105 @@
+<div class="container mx-auto max-w-5xl p-4">
+    <h2 class="text-2xl font-bold mb-4">SlideShows</h2>
+    <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        onclick="toggleModal('uploadModal')">
+        Upload Slide
+    </button>
+
+    {{#if mySlides}}
+    <div class="flex flex-col gap-6 mt-6">
+        {{#each mySlides}}
+        <div class="flex flex-col md:flex-row items-center bg-gray-50 border border-gray-300 rounded-lg p-4 shadow-sm">
+            <img class="w-36 h-auto object-cover rounded-md mb-4 md:mb-0 md:mr-6" src="{{this.slideURL}}"
+                alt="{{this.slideAlt}}" />
+            <div class="flex-1">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700" for="alt{{this.slideId}}">Alt Text</label>
+                    <input type="text" id="alt{{this.slideId}}" name="altText{{this.slideId}}"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring focus:ring-blue-200"
+                        placeholder="{{this.slideAlt}}" value="{{this.slideAlt}}">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700" for="numberInput{{this.slideId}}">Slide
+                        Order</label>
+                    <input type="number" id="numberInput{{this.slideId}}" name="number{{this.slideId}}"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring focus:ring-blue-200"
+                        placeholder="{{this.slideorder}}" value="{{this.slideorder}}" min="0" max="100">
+                </div>
+                <div class="flex items-center mb-4">
+                    <input class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-200"
+                        type="checkbox" value="" {{#if this.active}}checked{{/if}} id="isActive{{this.slideId}}">
+                    <label class="ml-2 text-sm font-medium text-gray-700" for="isActive{{this.slideId}}">Active
+                        Slide</label>
+                </div>
+                <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-2"
+                    onclick="updateSlide({{this.slideId}})">Update Slide</button>
+
+                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-2"
+                    onclick="removeSlide({{this.slideId}})">Delete Slide</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-gray-700 mt-6">There are currently no slides uploaded, please upload a new slide.</p>
+    {{/if}}
+
+    <!-- Modal for Upload -->
+    <div id="uploadModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h5 class="text-lg font-bold">Upload Slide</h5>
+                <button type="button" class="text-gray-500 hover:text-gray-700" onclick="toggleModal('uploadModal')">
+                    &times;
+                </button>
+            </div>
+            <div class="p-6">
+                <!-- Form for uploading slide -->
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="SlideImage" class="block text-sm font-medium text-gray-700">Upload Slide
+                            Image:</label>
+                        <input type="file" id="SlideImage" name="slideImage"
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring focus:ring-blue-200"
+                            accept="image/*">
+                    </div>
+                    <div class="mb-6">
+                        <img src="" alt="Uploaded banner" class="hidden w-full rounded-md upload-banner"
+                            id="uploadBanner">
+                    </div>
+                    <div class="mb-4">
+                        <label for="alt" class="block text-sm font-medium text-gray-700">Alt Text</label>
+                        <input type="text" id="alt" name="altText"
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring focus:ring-blue-200"
+                            placeholder="Enter alt text for the image">
+                    </div>
+                    <div class="mb-4">
+                        <label for="numberInput" class="block text-sm font-medium text-gray-700">Slide Order</label>
+                        <input type="number" id="numberInput" name="number"
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring focus:ring-blue-200"
+                            min="0" max="100" placeholder="Enter slide order">
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <input class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-200"
+                            type="checkbox" value="" id="isActive">
+                        <label class="ml-2 text-sm font-medium text-gray-700" for="isActive">Active Slide</label>
+                    </div>
+                    <!-- Upload and Save Buttons -->
+                    <div class="flex justify-end">
+                        <button type="submit" id="uploadImageBtn"
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">
+                            Upload Image
+                        </button>
+                        <button type="button"
+                            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 save-button" disabled>
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/assets/js/adminSlideShow.js"></script>

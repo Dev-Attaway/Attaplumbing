@@ -1,0 +1,708 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  list-style-type: none;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-admin-container {
+  background-color: #b7691b;
+}
+
+/* ✅ Default toolbar button styles */
+.format-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease-in-out;
+  font-size: 14px;
+}
+
+/* ✅ Highlight active buttons */
+.format-btn.is-active {
+  background-color: #6200ea !important;
+  /* Purple for active state */
+  color: white !important;
+  /* Ensure text is visible */
+}
+
+.ProseMirror span {
+  font-size: inherit;
+  /* ✅ Ensure custom font sizes work */
+}
+
+/* ✅ Style the color picker */
+#textColorPicker {
+  width: 40px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ✅ Style the font size dropdown */
+#fontSizeSelector {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* ✅ Ensure lists display correctly */
+/* ✅ Force Ordered Lists to Use Numbers */
+/* ✅ Force Ordered Lists (<ol>) to Show Numbers */
+.ProseMirror ol {
+  list-style-type: decimal !important;
+  /* ✅ Ensures numbers appear */
+  list-style-position: outside !important;
+  /* ✅ Fixes hidden numbers */
+  padding-left: 40px !important;
+  /* ✅ Creates space for numbers */
+  display: block !important;
+  /* ✅ Ensures list is displayed properly */
+}
+
+/* ✅ Force List Items (<li>) to Follow Ordered List Style */
+.ProseMirror ol li {
+  list-style-type: inherit !important;
+  /* ✅ Forces <li> to use the same style as <ol> */
+  display: list-item !important;
+  /* ✅ Ensures <li> is treated as a list item */
+}
+
+/* ✅ Force Unordered Lists to Use Bullets */
+.ProseMirror ul {
+  list-style-type: disc !important;
+  /* ✅ Ensures bullet points appear */
+  padding-left: 20px !important;
+}
+
+.ProseMirror ul li {
+  list-style-type: inherit !important;
+  /* ✅ Forces <li> to use the same style as <ol> */
+  display: list-item !important;
+  /* ✅ Ensures <li> is treated as a list item */
+}
+
+/* ❌ Remove This If It Conflicts */
+ol,
+ul {
+  list-style-type: inherit !important;
+  /* Instead of `initial`, use `inherit` */
+}
+
+/* ✅ Make the full editor box editable */
+#editor-container {
+  min-height: 300px !important;
+  height: auto !important;
+  overflow-y: auto;
+  padding: 12px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 6px !important;
+}
+
+/* ✅ Ensure Tiptap’s text field fills the box */
+.ProseMirror {
+  min-height: 300px !important;
+  /* ✅ Expands typing area */
+  height: 100% !important;
+  width: 100% !important;
+  border: none !important;
+  /* ✅ Removes inner black border */
+  outline: none !important;
+  padding: 12px !important;
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
+.ql-editor {
+  min-height: 300px !important;
+  /* ✅ Expands the typing space */
+  height: 100% !important;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.about-us-text {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 35%;
+}
+
+/* Ensure Tailwind does not interfere with Quill */
+/* Reset Tailwind influence on Quill */
+.quill-wrapper .ql-toolbar,
+.quill-wrapper .ql-container {
+  all: revert !important;
+  /* Restore default Quill styling */
+}
+
+/* Ensure proper spacing and alignment */
+.quill-wrapper .ql-toolbar {
+  background: #f8f9fa;
+  /* Light gray background */
+  padding: 6px !important;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Fix Toolbar Button Sizing */
+.quill-wrapper .ql-toolbar button,
+.quill-wrapper .ql-toolbar .ql-picker {
+  font-size: 14px !important;
+  height: 28px !important;
+  padding: 6px !important;
+}
+
+/* Fix Toolbar Icons */
+.quill-wrapper .ql-toolbar button svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Ensure Editor Text is Proper */
+.quill-wrapper .ql-editor {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 12px;
+}
+
+/* Keep the editor properly sized */
+.quill-wrapper .ql-container {
+  min-height: 200px;
+  background: white;
+  border-radius: 6px;
+}
+
+.ql-container {
+  max-height: 300px !important;
+  overflow-y: auto !important;
+}
+
+/* All Font Properties */
+
+.oswald-uniquifier {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.gowun-batang-regular {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gowun-batang-bold {
+  font-family: "Gowun Batang", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pt-serif-regular {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pt-serif-bold {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pt-serif-regular-italic {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.pt-serif-bold-italic {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+button {
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.epic-class {
+  color: black;
+}
+
+h4,
+h3,
+h2,
+h1 {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+}
+
+.dank {
+  color: black;
+}
+
+header {
+  /* align-items: center;
+  padding: 20px; */
+  /* background-color: var(--bg-color); */
+}
+
+.social-icons {
+  margin-left: 15px;
+  padding: 10px 15px;
+}
+
+.social-icons a {
+  color: var(--text-primary);
+  /* Change color as needed */
+  font-size: 30px;
+  /* Adjust size */
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: var(--text-primary-dark);
+  /* Change color on hover */
+}
+
+.logo img {
+  max-height: 100px;
+  /* Adjust logo size */
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links .btn {
+  margin-left: 15px;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.nav-links .button:hover {
+  background-color: #0056b3;
+}
+.btn-frog {
+  color: var(--ghost-white);
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+}
+
+.btn-egyptian-blue {
+  color: var(--ghost-white);
+  background-color: var(--egyptian-blue);
+  border-color: var(--egyptian-blue);
+}
+
+.btn-egyptian-blue:hover {
+  color: var(--ghost-white);
+  background-color: var(--egyptian-blue);
+  border-color: var(--egyptian-blue);
+}
+
+.btn-frog:hover {
+  color: var(--ghost-white);
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+}
+
+.center {
+  text-align: center;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Footer Styles */
+.footer-main {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+}
+
+.footer-logo {
+  max-width: 200px;
+}
+
+.q-flex-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.footer-row div {
+  text-align: center;
+}
+
+.service-footer {
+  text-align: center;
+  padding-top: 2%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.service-footer h3 {
+  font-size: 48px;
+  font-weight: bolder;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-social-icons a {
+  color: var(--text-primary);
+  /* Change color as needed */
+  font-size: 30px;
+  /* Adjust size */
+  text-decoration: none;
+}
+
+.footer-social-icons a:hover {
+  color: var(--text-primary-dark);
+  /* Change color on hover */
+}
+
+.footer-privacy {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer-privacy span {
+  padding-left: 0.5rem;
+}
+
+.footer-bottom {
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.footer-bottom a {
+  color: black;
+}
+
+@media (max-width: 767px) {
+  .service-flex div {
+    width: 100%;
+    text-align: center;
+  }
+
+  .service-title {
+    background-color: white;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer-row div {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-row h5 {
+    display: none;
+  }
+
+  .navbar-brand img {
+    width: 50%;
+  }
+
+  .footer-li li:hover {
+    background-color: var(--text-primary);
+    color: black;
+  }
+}
+
+/* Contact Form */
+
+.contact-text {
+  background-image: url("/assets/imgs/real-home-back-2.png");
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 48px;
+  font-weight: bolder;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.warning {
+  border-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+/* About-us Page */
+/*
+.about-us-header {
+  text-align: center;
+  color: Black;
+  font-size: 16px;
+  font-weight: bolder;
+  padding-bottom: 3%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.about-banner {
+  background-color: black;
+}
+
+.about-banner img {
+  width: 100%;
+  max-height: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
+.about-us-header h3 {
+  font-size: 64px;
+  color: var(--text-primary);
+  font-weight: bolder;
+}
+
+.about-us-header h4 {
+  font-size: 48px;
+  color: var(--text-primary-light);
+  font-weight: bolder;
+}
+@media (max-width: 767px) {
+  .about-us-paragraph {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+.about-us-paragraph {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+}
+
+.about-us-paragraph div {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.about-us-paragraph img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+@media (max-width: 767px) {
+  .about-us-header div {
+    width: 100% !important;
+  }
+}
+*/
+/*Shop page*/
+.shopPage-background {
+  background-color: var(--ghost-white);
+}
+
+.shopPage-btn {
+  background-color: var(--egyptian-blue);
+  color: var(--ghost-white);
+}
+
+.shopPage-btn:hover {
+  color: var(--moonstone);
+}
+
+.shop-option {
+  flex: 1 1 300px;
+}
+
+.products-grid {
+  flex: 3 1 700px;
+}
+
+.product-card {
+  background-color: var(--ghost-white);
+}
+
+/* .accordion-button:not(.collapsed) {
+  color: black;
+  background-color: inherit !important;
+} */
+
+.shop-img {
+  max-width: 400px;
+  max-height: 850px;
+}
+
+/*product page*/
+
+.btn-holder {
+  background-color: var(--bg-color);
+  color: var(--ghost-white);
+}
+
+.product-holder {
+  background-color: var(--periwinkle);
+}
+
+.product-btn {
+  background-color: var(--egyptian-blue);
+  border-color: var(--egyptian-blue);
+  color: var(--ghost-white);
+}
+
+.product-btn:hover {
+  background-color: var(--egyptian-blue);
+  border-color: var(--moonstone);
+  color: var(--ghost-white);
+}
+
+.magenta-btn {
+  background-color: var(--steel-pink);
+  color: var(--ghost-white);
+}
+
+.magenta-btn:hover {
+  border-color: var(--moonstone);
+  color: var(--ghost-white);
+}
+
+.carousel-width {
+  width: 75%;
+  min-width: 50%;
+}
+
+/* Cart Page */
+.cart-img {
+  max-width: 400px;
+  max-height: 850px;
+}
+
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-color: #ccc;
+}
+
+@media (max-width: 767px) {
+  .service-details-header div {
+    width: 100% !important;
+  }
+
+  .service-details-paragraph div {
+    width: 100%;
+  }
+}
+
+/* 404 and 500 error styels */
+.forOfor {
+  font-family: "DM Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+}
+
+/* Login Page */
+
+.loginSub {
+  display: flex;
+  justify-content: center;
+}
+
+/* Discloser Page Styles */
+
+.disclosure-container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.disclosure-container h1 {
+  color: #333;
+  text-align: center;
+}
+
+.disclosure-container h2 {
+  color: #555;
+  margin-top: 30px;
+}
+
+.disclosure-container p {
+  margin-bottom: 20px;
+}
+
+.disclosure-container ul {
+  margin-left: 20px;
+}
+
+.disclosure-container li {
+  margin-bottom: 10px;
+}
+
+.disclosure-container a {
+  color: #3498db;
+}
+
+.disclosure-container a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-fluid {
+    font-size: clamp(0.875rem, 2vw, 1.125rem); /* Adjust values as needed */
+  }
+}

@@ -1,0 +1,994 @@
+<!-- Edit Product -->
+<div class="container mx-auto my-4 p-6 bg-white shadow-lg rounded-lg w-3/4" id="editProduct">
+    <input type="hidden" id="myid" name="myid" value="{{product.id}}">
+    <h1 class="text-center text-3xl font-bold mb-6">Edit Product</h1>
+    <div class="flex flex-wrap lg:flex-nowrap gap-6">
+        <!-- Product Form -->
+        <form class="flex-[4_4_0%] space-y-4" id="productForm">
+            <!-- Product Name -->
+            <div>
+                <label for="productName" class="block text-sm font-medium text-gray-700">Product Name:</label>
+                <input type="text" id="productName" name="productName"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    value="{{product.productName}}" placeholder="{{product.productName}}">
+            </div>
+
+            <!-- Stock Number -->
+            <div>
+                <label for="stockNumber" class="block text-sm font-medium text-gray-700">Quantity:</label>
+                <input type="number" id="stockNumber" name="stockNumber"
+                    class="mt-1 block w-1/3 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    value="{{product.quantity}}">
+            </div>
+
+            <!-- Category -->
+            <div>
+                <label for="category" class="block text-sm font-medium text-gray-700">Category:</label>
+                <div class="flex items-center gap-4 mt-1">
+                    <input type="text" id="category" name="category"
+                        class="flex-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    <button type="button" id="addCategory"
+                        class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Add New Category
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Selection -->
+            <div class="catDiv mt-3">
+                <select id="categorySelect"
+                    class="form-select px-4 py-2 border border-blue-500 text-blue-500 font-semibold rounded-md cursor-pointer"
+                    onchange="categorySelected(this.value)">
+                    {{#each categories}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../product.category.id)}}selected{{/if}}>
+                        {{this.categoryName}}
+                    </option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <!-- Subcategory -->
+            <div>
+                <label for="subcategory" class="block text-sm font-medium text-gray-700">SubCategory:</label>
+                <div class="flex items-center gap-4 mt-1">
+                    <input type="text" id="subcategory" name="subcategory"
+                        class="flex-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    <button type="button" id="addSubCategory"
+                        class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Add New Sub-Category
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subcategory Section -->
+            <div class="subCatDivHeader mt-4"></div>
+            <div class="subCatDiv mt-3"></div>
+
+            <!-- Price -->
+            <div>
+                <label for="price" class="block text-sm font-medium text-gray-700">Price ($):</label>
+                <input type="number" id="price" name="price" step="0.01"
+                    class="mt-1 block w-1/3 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    value="{{product.price}}" placeholder="{{product.price}}">
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
+                <textarea id="description" name="description" rows="4"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">{{product.description}}</textarea>
+            </div>
+
+            <!-- Active & Featured Unit -->
+            <div class="flex gap-4">
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" class="hidden peer" id="activeBox" autocomplete="off" {{#if
+                        product.activeUnit}}checked{{/if}}>
+                    <label for="activeBox"
+                        class="inline-block px-4 py-2 border border-blue-500 text-blue-500 font-semibold rounded-md cursor-pointer peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-transparent">
+                        Active Unit
+                    </label>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" class="hidden peer" id="featuredbox" autocomplete="off" {{#if
+                        product.featured}}checked{{/if}}>
+                    <label for="featuredbox"
+                        class="inline-block px-4 py-2 border border-blue-500 text-blue-500 font-semibold rounded-md cursor-pointer peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-transparent">
+                        Featured Unit
+                    </label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 subBtn">
+                Update Product
+            </button>
+        </form>
+
+        <!-- Image Uploader -->
+        <div class="flex-[1_1_0%] bg-gray-50 rounded-lg shadow-md p-6">
+            <form id="uploadForm" enctype="multipart/form-data" class="space-y-4">
+                <div>
+                    <label for="productImage" class="block text-sm font-medium text-gray-700">Upload Product
+                        Images</label>
+                    <input type="file" id="productImage" name="productImage" accept="image/*" multiple
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <button type="button" id="uploadBtn"
+                    class="w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Upload Images
+                </button>
+            </form>
+
+            <div id="thumbnails" class="flex flex-wrap gap-2 mt-4">
+                <img src="{{product.image}}" alt="Thumbnail 1"
+                    class="selectedImg1 h-16 w-16 object-cover rounded-md shadow cursor-pointer hidden"
+                    onclick="openImageModal(this)" id="img1">
+
+                <img src="{{product.image2}}" alt="Thumbnail 2"
+                    class="selectedImg2 h-16 w-16 object-cover rounded-md shadow cursor-pointer hidden"
+                    onclick="openImageModal(this)" id="img2">
+                <img src="{{product.image3}}" alt="Thumbnail 3"
+                    class="selectedImg3 h-16 w-16 object-cover rounded-md shadow cursor-pointer hidden"
+                    onclick="openImageModal(this)" id="img3">
+                <img src="{{product.image4}}" alt="Thumbnail 4"
+                    class="selectedImg4 h-16 w-16 object-cover rounded-md shadow cursor-pointer hidden"
+                    onclick="openImageModal(this)" id="img4">
+                <img src="{{product.image5}}" alt="Thumbnail 5"
+                    class="selectedImg5 h-16 w-16 object-cover rounded-md shadow cursor-pointer hidden"
+                    onclick="openImageModal(this)" id="img5">
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="relative bg-white rounded-lg shadow-lg">
+        <button class="absolute top-2 right-2 bg-gray-500 text-white rounded-full p-2"
+            onclick="closeImageModal()">&#x2715;</button>
+        <a class="absolute top-1 right-1 bg-gray-500 text-white rounded-full p-2" id="deleteImage">&#x2715;</a>
+        <img id="modalImage" src="" alt="Large Image" class="rounded-lg max-w-full max-h-[80vh]">
+    </div>
+</div>
+<div id="success-message" class="hidden fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
+    Product updated successfully!
+</div>
+
+<script>
+
+    var checkbox = document.querySelectorAll("input[name=categoryBox]");
+    var currCategoryID
+    var currSubCategoryID
+    var currImgPath
+    var startSubCats = {{{ json product.sub_categories }}}
+    var productObj = {{{ json product }}}
+
+    var updateImgArr = []
+    const form = document.getElementById('uploadForm');
+    const uploadBtn = document.querySelector('#uploadBtn')
+    const updateImgBtn = document.querySelector('.updateImgBtn')
+
+
+
+
+
+
+    // Select the submit button and input fields from the form
+    const sub = document.querySelector(".subBtn");
+    const prodName = document.querySelector("#productName");
+    const stocknum = document.querySelector("#stockNumber");
+    const price = document.querySelector("#price");
+    const description = document.querySelector("#description");
+    const category = document.querySelector("#category");
+    const catDiv = document.querySelector(".catDiv")
+    const subcategory = document.querySelector("#subcategory");
+    const subCatDiv = document.querySelector(".subCatDiv");
+    const subCatDivHeader = document.querySelector('.subCatDivHeader')
+    const addCategoryBtn = document.querySelector("#addCategory");
+    const addSubCategoryBtn = document.querySelector("#addSubCategory");
+    const imgInput = document.querySelector('#imgInput')
+    const activeBox = document.querySelector('#activeBox')
+    const featuredbox = document.querySelector('#featuredbox')
+    const myid = document.querySelector("#myid")
+
+    const oldImg1 = document.querySelector("#img1")
+    const oldImg2 = document.querySelector("#img2")
+    const oldImg3 = document.querySelector("#img3")
+    const oldImg4 = document.querySelector("#img4")
+    const oldImg5 = document.querySelector("#img5")
+
+    const allOldImages = [oldImg1, oldImg2, oldImg3, oldImg4, oldImg5]
+    const modalImg = document.querySelector('#modalImg')
+    var maxAmtOfImages = 0
+
+    for (let v = 0; v < 5; v++) {
+
+        if (!allOldImages[v].src.includes('assets')) {
+
+            allOldImages[v].classList.add("hide")
+
+            maxAmtOfImages++
+        } else {
+            updateImgArr.push(allOldImages[v].src)
+        }
+    }
+    console.log(maxAmtOfImages)
+
+
+    var selectedSubCategories = []
+    function validateCategory() {
+        const categoryDropdown = document.getElementById('categorySelect');
+        const categoryInput = document.getElementById('category');
+
+        let hasError = false;
+
+        // Reset previous states
+        categoryDropdown.classList.remove("warning");
+        categoryInput.classList.remove("warning");
+
+        if (!categoryDropdown.value && !categoryInput.value.trim()) {
+            // If no category is selected and no input is provided
+            categoryDropdown.classList.add("warning");
+            categoryInput.classList.add("warning");
+            categoryInput.setCustomValidity("Either select a category or enter a new one.");
+            hasError = true;
+        } else {
+            // Reset custom validity messages
+            categoryInput.setCustomValidity("");
+        }
+
+        // Perform validity check to trigger the custom validity message
+        categoryDropdown.reportValidity();
+        categoryInput.reportValidity();
+
+        // Return `false` if valid, `true` if there are errors
+        return hasError;
+    }
+
+
+    function validateSubCategory() {
+        const subcategoryInput = document.getElementById('subcategory');
+        const subcategoryCheckboxes = document.querySelectorAll(".subCatDiv input[name=subCategories]:checked");
+
+        let hasError = false;
+
+        // Reset previous states
+        subcategoryInput.classList.remove("warning");
+
+        if (!subcategoryInput.value.trim() && subcategoryCheckboxes.length === 0) {
+            // If no subcategory is entered or selected
+            subcategoryInput.placeholder = "Subcategory must be filled or selected.";
+            subcategoryInput.classList.add("warning");
+            hasError = true;
+        } else {
+            subcategoryInput.placeholder = ""; // Reset placeholder
+        }
+
+        // Return `false` if valid, `true` if there are errors
+        return hasError;
+    }
+
+
+    function validateFourm() {
+        let errors = 0;
+
+        if (prodName.value == null || prodName.value == "") {
+            errors++;
+            prodName.placeholder = "Name Must Be Filled";
+            prodName.classList.add("warning");
+        } else {
+            prodName.classList.remove("warning");
+        }
+
+        if (stocknum.value == null || stocknum.value == "" || stocknum.value == 0) {
+            errors++;
+            stocknum.placeholder = "stocknum Must Be Filled";
+            stocknum.classList.add("warning");
+        } else {
+            stocknum.classList.remove("warning");
+        }
+
+        if (validateCategory()) {
+            errors++;
+            category.placeholder = "Category Must Be Filled Or Selected From The Categories Found Below";
+            category.classList.add("warning");
+        } else {
+            category.classList.remove("warning");
+        }
+
+        if (validateSubCategory()) {
+            errors++;
+            subcategory.placeholder = "Sub-category Must Be Filled Or Selected From Sub-categories Found Below";
+            subcategory.classList.add("warning");
+        } else {
+            subcategory.classList.remove("warning");
+        }
+
+        if (price.value == null || price.value == "" || price.value == 0) {
+            errors++;
+            price.placeholder = "Price Must Be Filled";
+            price.classList.add("warning");
+        } else {
+            price.classList.remove("warning");
+        }
+
+        if (description.value == null || description.value == "") {
+            errors++;
+            description.placeholder = "Description Must Be Filled";
+            description.classList.add("warning");
+        } else {
+            description.classList.remove("warning");
+        }
+        return errors;
+    }
+
+
+    const categorySelected = async (id) => {
+        if (id) {
+            currCategoryID = id; // Set the current category ID
+
+            // Fetch subcategories when a category is selected
+            const response = await fetch("/getSubCategories/" + id, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            });
+
+            if (response.ok) {
+                const data = await response.json(); // Parse the JSON response
+                console.log("Got Sub Categories: ", data);
+                DisplaySubCategories(data); // Display the subcategories
+            } else {
+                alert(response.statusText);
+            }
+        } else {
+            currCategoryID = null; // Reset the current category ID
+            subCatDiv.innerHTML = ''; // Clear subcategories display
+        }
+    };
+
+    function DisplaySubCategories(subs) {
+        // First, remove all existing buttons in subCatDiv
+        subCatDiv.innerHTML = '';
+        subCatDivHeader.innerHTML = '';
+
+        // Create the card
+        const displayDiv = document.createElement('div');
+        displayDiv.classList.add('card', 'mb-3', 'm-2', 'p-2', 'bg-info', 'bg-opacity-25');
+
+        // Product message
+        const ourProds = document.createElement('m-2', 'p-2', 'fw-semibold');
+        ourProds.innerText = 'Please choose from listed Sub-Categories or create one; if none available.';
+
+        // Append message to card
+        displayDiv.appendChild(ourProds);
+
+
+        // Loop through the subs array to generate the input/label HTML
+        subs.forEach(sub => {
+
+            // Create input element
+            const input = document.createElement('input');
+            input.type = 'checkbox';
+            input.classList.add('btn-check');
+            input.id = `btncheckSub${sub.id}`;
+            input.name = 'subCategories';
+            input.value = sub.id;
+            input.autocomplete = 'off';
+
+
+            // Create label element
+            const label = document.createElement('label');
+            label.classList.add('btn', 'btn-outline-primary', 'me-1');
+            label.setAttribute('for', `btncheckSub${sub.id}`);
+            label.innerText = sub.subCategoryName;
+
+
+
+            if (firstRun) {
+
+                startSubCats.forEach(currSub => {
+                    if (currSub.id == sub.id) {
+                        input.checked = true
+                    }
+                })
+
+
+
+            }
+
+            // Append the input and label to subCatDiv
+            subCatDivHeader.appendChild(displayDiv);
+            subCatDiv.appendChild(input);
+            subCatDiv.appendChild(label);
+
+        });
+        firstRun = false
+    }
+
+
+
+    // Function to handle the product submission
+    const newProd = async (e) => {
+        // Prevent the default form submission behavior
+        e.preventDefault();
+        var subcheckbox = document.querySelectorAll("input[name=subCategories]");
+        var imgPath
+        for (i = 0; i < subcheckbox.length; i++) {
+            if (subcheckbox[i].checked) {
+                selectedSubCategories.push(subcheckbox[i].value)
+            }
+        }
+
+        if (selectedSubCategories.length > 0) {
+            //This function should only run when there are sub categories. This is how it will be checked when required fields are entered
+            console.log(selectedSubCategories.length)
+        }
+
+        let theErrors = validateFourm();
+        console.log(theErrors);
+        theErrors = 0
+
+
+        if (theErrors === 0) {
+            // Create a message object with product details
+
+
+        };
+        let newMessage = {
+            id: myid.value,
+            productName: prodName.value,
+            quantity: stocknum.value,
+            price: price.value,
+            description: description.value,
+            image: updateImgArr[0],
+            activeUnit: activeBox.checked,
+            featured: featuredbox.checked,
+            image2: updateImgArr[1],
+            image3: updateImgArr[2],
+            image4: updateImgArr[3],
+            image5: updateImgArr[4],
+
+
+        }
+
+        // Send a POST request to submit the new product data
+        const response = await fetch("/admin/editProduct/" + myid.value + "/update", {
+            method: "put",
+            body: JSON.stringify(newMessage),
+            headers: { "Content-Type": "application/json" }, // Specify the content type
+        });
+
+        // Check if the response is okay (status in the range 200-299)
+        if (response.ok) {
+            const data = await response.json(); // Parse the JSON response
+            console.log("Product Updated:", data); // Log the created product details
+            associateCategoryWithProduct(currCategoryID, data.id); // Proceed to create/associate the category for the product
+
+            // Trigger the off-canvas to show the product view
+            // const offCanvasElement = document.getElementById("currAddedProd");
+            // offCanvasElement.classList.remove("invisible");
+        } else {
+            alert(response.statusText); // Alert the user if the response was not okay
+        }
+    }
+
+    //add max of 5 images
+
+    //during validation of uploading image, check how many null slots are left, that is the actual max amount, if you want to add more delete some of the current images first. 
+
+
+
+
+    const associateCategoryWithProduct = async (categoryID, productID) => {
+        console.log(categoryID, "myID is: " + myid.value)
+        try {
+            // Prepare the association information
+            const associationInfo = {
+                category_id: categoryID,
+                product_id: myid.value,
+            };
+
+            // Make the POST request to associate the category with the product
+            const response = await fetch("/admin/addproduct/associateCategoryWithProduct", {
+                method: "POST",
+                body: JSON.stringify(associationInfo),
+                headers: { "Content-Type": "application/json" },
+            });
+
+            if (response.ok) {
+                const data = await response.json(); // Parse the JSON response
+                console.log("Successfully associated category with product:", data);
+                associateSubCategoryToProduct(myid.value)
+            } else {
+                const errorData = await response.text(); // Capture the error response
+                console.error("Error associating category with product:", response.status, errorData);
+                alert("Failed to associate category with product."); // Alert on failure
+            }
+        } catch (error) {
+            console.error("Error in associateCategoryWithProduct:", error);
+            alert("An unexpected error occurred while associating the category with the product."); // Alert on unexpected error
+        }
+    };
+
+
+    const associateSubCategoryToProduct = async (productID) => {
+        try {
+            const delResponse = await fetch("/admin/editProduct/" + myid.value + "/deleteSub", {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+            });
+        } catch (error) {
+            console.error("error deleting Sub Categories", error)
+        }
+
+
+        for (var i = 0; i < selectedSubCategories.length; i++) {
+            try {
+                // Prepare the subcategory information for association
+                const associationInfo = {
+                    sub_category_id: selectedSubCategories[i],
+                    product_id: productID, // Assuming you also want to associate with the product
+                };
+
+                // Make the POST request to associate subcategory with product
+                const response = await fetch("/admin/addproduct/associateSubCategoryToProduct", {
+                    method: "POST",
+                    body: JSON.stringify(associationInfo),
+                    headers: { "Content-Type": "application/json" },
+                });
+
+                if (response.ok) {
+                    // Parse the response data
+                    const data = await response.json();
+                    console.log("Successfully associated subcategory with product:", data);
+                    showSuccessMessage()
+
+                } else {
+                    // Handle non-OK responses
+                    alert(`Failed to associate: ${response.statusText}`); // Alert on failure
+                }
+            } catch (error) {
+                // Catch and log any errors that occur during the fetch request
+                console.error("Error associating subcategory with product:", error);
+            }
+        }
+
+    };
+
+
+    uploadBtn.addEventListener('click', async function (event) {
+        event.preventDefault();
+
+        const formData = new FormData();
+        const fileInput = document.getElementById('productImage');
+
+        if (fileInput.files.length === 0) {
+            alert('Please select an image file to upload.');
+            return;
+        }
+        if (fileInput.files.length > maxAmtOfImages) {
+            alert('You can only upload a maximum of ' + maxAmtOfImages + ' images.');
+            return;
+        }
+        if (maxAmtOfImages == 0) {
+            alert('Please delete an exisisting image, Products can have a max of 5');
+            return;
+        }
+
+        for (const file of fileInput.files) {
+            formData.append('productImages', file);
+        }
+
+        try {
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert('Image uploaded successfully!');
+                // Use result.path to reference the uploaded image
+                console.log(result.paths); // Add this to your img table or product modal
+
+                // Example: You can update a hidden input field or add the path to a modal form
+                const imagePath = result.paths;
+                currImgPath = result.paths;
+                console.log(result, "here is path:", result.paths)
+
+                // After successful upload, show the uploaded image in the modal
+                var cipIndex = 0
+                for (let i = 0; i < maxAmtOfImages; i++) {
+                    if (currImgPath.length > cipIndex) {
+                        updateImgArr.push(currImgPath[cipIndex])
+                        cipIndex++
+                        console.log("uploading image number: ", cipIndex)
+                    }
+                    else {
+                        updateImgArr.push(null)
+                    }
+                }
+                console.log(updateImgArr)
+            } else {
+                alert('Failed to upload image.');
+            }
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            alert('An error occurred while uploading the image.');
+        }
+    });
+
+
+
+
+
+
+
+
+    // UPDATING A SINGLE IMAGE INSTEAD OF MASS UPLOADING IMAGES
+
+
+    var updateImgIndex
+
+    function updateCurrImage(ind) {
+        updateImgIndex = ind
+        var testObj = {
+            image1: '1',
+            image2: '2',
+            image3: '3',
+            image4: '4',
+            image5: '5',
+        }
+        testObj[`image${ind}`] = 'Yummers'
+        modalImg.src = updateImgArr[ind - 1]
+
+        console.log(testObj)
+    }
+
+
+
+
+
+
+
+
+
+    function DisplaySubCategory(sub) {
+        // Ensure subCatDiv is defined
+        if (!subCatDiv) {
+            console.error('subCatDiv not found');
+            return;
+        }
+
+        // Create the checkbox input
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.classList.add('btn-check');
+        input.id = `btncheckSub${sub.id}`;
+        input.name = 'subCategories';
+        input.value = sub.id;
+        input.autocomplete = 'off';
+
+        // Create label element
+        const label = document.createElement('label');
+        label.classList.add('btn', 'btn-outline-primary', 'me-1');
+        label.setAttribute('for', `btncheckSub${sub.id}`);
+        label.innerText = sub.subCategoryName;
+
+        // Append elements to subCatDiv
+        subCatDiv.appendChild(input);
+        subCatDiv.appendChild(label);
+    }
+
+    function DisplayNewCategory(cat) {
+        // Get the dropdown element where categories are listed
+        const select = document.querySelector('.catDiv select');
+
+        // Create an option element for the new category
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.textContent = cat.categoryName;
+
+        // Append the new option to the dropdown menu
+        select.appendChild(option);
+
+        // Auto-select the new category
+        select.value = cat.id; // Set the dropdown's value to the new category's ID
+
+        categorySelected({{ cat.id }})
+    }
+
+
+    // Function to handle category creation or association
+    const newCategory = async () => {
+        try {
+            // Check if the category value is null or empty
+            if (!category.value && !currCategoryID) {
+                alert("Please enter a category name."); // Alert the user
+                return; // Exit the function if the category is invalid
+            }
+
+            // Create an object with category information
+            let categoryInfo = {
+                categoryName: category.value,
+            };
+
+            // If the category doesn't exist, create a new one
+            const response = await fetch("/admin/addproduct/newCategory", {
+                method: "POST",
+                body: JSON.stringify(categoryInfo),
+                headers: { "Content-Type": "application/json" },
+            });
+
+            if (response.ok) {
+                const data = await response.json(); // Parse the JSON response
+                console.log("Made new category:", data);
+                DisplayNewCategory(data); // Call the function to display the new category
+            } else {
+                alert(response.statusText); // Alert the user if category creation failed
+            }
+        } catch (error) {
+            console.error("Error creating new category:", error); // Log the error for debugging
+            alert("An error occurred while creating the category. Please try again."); // Alert the user about the error
+        }
+    };
+    // Function to handle subcategory creation or association
+    const newSubCategory = async () => {
+        try {
+            if (subcategory.value) {
+
+                // If subcategory doesn't exist, create a new one
+                const subCategoryInfo = {
+                    subCategoryName: subcategory.value,
+                    category_id: currCategoryID,
+                };
+
+                console.log("Creating new subcategory:", subCategoryInfo);
+
+                const response = await fetch("/admin/addproduct/newSubCategory", {
+                    method: "POST",
+                    body: JSON.stringify(subCategoryInfo),
+                    headers: { "Content-Type": "application/json" },
+                });
+
+                if (response.ok) {
+                    const data = await response.json(); // Parse the JSON response
+                    DisplaySubCategory(data);
+                    console.log("New subcategory created");
+
+                } else {
+                    const errorResponse = await response.text();
+                    console.error("Failed to create subcategory:", response.statusText, errorResponse);
+                    alert(`Failed to create subcategory: ${response.statusText}`); // Alert on failure
+                }
+            }
+            else {
+                if (subcategory.value == null) {
+                    alert(`Value of the Sub-Category: ${subcategory.value}`); // Alert on failure
+                }
+
+                alert(`Something is wrong with the value of the Sub-Category: ${subcategory.value} `); // Alert on failure
+
+            }
+
+        } catch (error) {
+            console.error("Error during subcategory creation:", error);
+            alert("An error occurred while creating the subcategory."); // Alert on error
+        }
+    };
+
+
+
+
+
+
+
+
+
+
+    function DisplaySubCategory(sub) {
+        // Ensure subCatDiv is defined
+        if (!subCatDiv) {
+            console.error('subCatDiv not found');
+            return;
+        }
+
+        // Create the checkbox input
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.classList.add('btn-check');
+        input.id = `btncheckSub${sub.id}`;
+        input.name = 'subCategories';
+        input.value = sub.id;
+        input.autocomplete = 'off';
+
+        // Create label element
+        const label = document.createElement('label');
+        label.classList.add('btn', 'btn-outline-primary', 'me-1');
+        label.setAttribute('for', `btncheckSub${sub.id}`);
+        label.innerText = sub.subCategoryName;
+
+        // Append elements to subCatDiv
+        subCatDiv.appendChild(input);
+        subCatDiv.appendChild(label);
+    }
+
+
+
+
+
+    function refreshThumbnails() {
+        for (i = 0; i < updateImgArr.length; i++) {
+            if (updateImgArr[i] != null) {
+                allOldImages[i].src = updateImgArr[i]
+                allOldImages[i].classList.remove("hidden")
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const maxSelections = 5;
+    const imageCheckboxes = document.querySelectorAll('.image-checkbox');
+    const selectionWarning = document.getElementById('selection-warning');
+    const submitButton = document.getElementById('submit-button');
+    const deleteImageBtn = document.getElementById('deleteImage')
+    let singleUpdateExsist = false
+
+    // Event listener to ensure only 5 images can be selected
+    imageCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (!singleUpdateExsist) {
+                const checkedBoxes = document.querySelectorAll('.image-checkbox:checked');
+                if (checkedBoxes.length > maxSelections - updateImgArr.length) {
+                    checkbox.checked = false;
+                    selectionWarning.style.display = 'block';
+                } else {
+                    selectionWarning.style.display = 'none';
+                }
+            }
+            else {
+                const checkedBoxes = document.querySelectorAll('.image-checkbox:checked');
+                if (checkedBoxes.length > 1) {
+                    checkbox.checked = false;
+                    selectionWarning.style.display = 'block';
+                } else {
+                    selectionWarning.style.display = 'none';
+                }
+            }
+
+        });
+    });
+
+
+
+    deleteImageBtn.addEventListener('click', async function () {
+
+        var newImageObj = {
+            image: productObj.image,
+            image2: productObj.image2,
+            image3: productObj.image3,
+            image4: productObj.image4,
+            image5: productObj.image5,
+        }
+
+
+        if (updateImgIndex - 1 == 0) {
+            newImageObj.image = newImageObj.image2
+            newImageObj.image2 = newImageObj.image3
+            newImageObj.image3 = newImageObj.image4
+            newImageObj.image4 = newImageObj.image5
+            newImageObj.image5 = null
+        }
+        else {
+            for (i = updateImgIndex; i < 6; i++) {
+                if (i == 5) {
+                    newImageObj.image5 = null
+                }
+                else {
+                    newImageObj[`image${i}`] = newImageObj[`image${i + 1}`]
+                }
+
+
+            }
+
+        }
+
+        const response = await fetch("/admin/editProduct/" + myid.value + "/update", {
+            method: "put",
+            body: JSON.stringify(newImageObj),
+            headers: { "Content-Type": "application/json" }, // Specify the content type
+        });
+
+        // Check if the response is okay (status in the range 200-299)
+        if (response.ok) {
+            const data = await response.json(); // Parse the JSON response
+            console.log("Product Updated:", data); // Log the created product details
+            refreshThumbnails()
+        } else {
+            alert(response.statusText); // Alert the user if the response was not okay
+        }
+
+
+        const modalElement = document.getElementById('UploadedImages');
+        const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+        location.reload()
+        modalInstance.hide();
+
+    })
+
+    function showSuccessMessage() {
+        // Show success message
+        const successMessage = document.getElementById("success-message");
+        successMessage.classList.remove("hidden");
+        successMessage.innerText = "Product updated successfully!";
+
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+            successMessage.classList.add("hidden");
+        }, 3000);
+    }
+
+
+    var firstRun = true
+    categorySelected({{ product.category.id }})
+
+    sub.addEventListener("click", newProd);
+
+    addCategoryBtn.addEventListener('click', async (e) => {
+        e.preventDefault(); // Prevent page reload
+        if (!validateCategory())
+            await newCategory();
+    });
+
+    addSubCategoryBtn.addEventListener('click', async (e) => {
+        e.preventDefault(); // Prevent page reload
+        if (!validateSubCategory())
+            await newSubCategory();
+    });
+
+    function openImageModal(img) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = img.src;
+        modal.classList.remove('hidden');
+    }
+
+    function closeImageModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.add('hidden');
+    }
+
+    refreshThumbnails()
+</script>
+
+<style>
+    .fixed {
+        position: fixed;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
