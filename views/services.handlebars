@@ -1,23 +1,41 @@
-<div class="min-h-screen border-base-300 border-2">
+<div class="min-h-screen border-base-300 border-2 border-b-0">
     <div id="services-container">
-        <!-- ServicesPrimer component would go here -->
         <div class="container mx-auto p-4">
-            <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-6 md:gap-8">
                 <!-- Installations Card -->
                 <div class="card border-primary border shadow-lg">
-                    <div class="card-body">
-                        <h3 class="text-xl font-bold text-primary">Installations</h3>
-                        <button
-                            onclick="handleButtonClick('btn-1')"
-                            class="btn btn-primary mt-3"
-                            type="button"
-                            id="btn-1"
-                        >
-                            Click for more
-                        </button>
+                    <div class="card-body p-4 md:p-6 ">
+                        <div class="flex items-center flex-col md:flex-row gap-4">
+                            <div id="icon-1" class="transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-primary text-center md:text-left flex-grow">Installations</h3>
+                            <button
+                                onclick="handleButtonClick('btn-1')"
+                                class="btn btn-primary btn-sm md:btn-md w-auto lg:w-1/4"
+                                type="button"
+                                id="btn-1"
+                            >
+                                Click for more
+                            </button>
+                        </div>
                         <div class="collapse" id="content-1">
-                            <div class="collapse-content">
-                                <p class="py-4">When upgrading your bathroom, kitchen, or laundry room, you'll need to install new plumbing and fixtures. It's also crucial to replace older faucets, Click for moreerheads, and appliance connections as soon as they corrode and start leaking to prevent further damage to your property. This is where AttaPlumbing can help. We offer comprehensive plumbing repair and installation services to keep your property in working order. By proactively replacing or installing plumbing components, you can prevent severe problems before they escalate into costly emergencies. Routine maintenance is much simpler than dealing with an unexpected plumbing crisis.</p>
+                            <div class="collapse-content px-0">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <p class="font-poppins font-medium text-base md:text-lg">When upgrading your bathroom, kitchen, or laundry room, you'll need to install new plumbing and fixtures. It's also crucial to replace older faucets, showerheads, and appliance connections as soon as they corrode and start leaking to prevent further damage to your property. This is where AttaPlumbing can help.</p>
+                                    <div class="flex justify-end">
+                                        <img
+                                            alt="Professional plumbing installation services"
+                                            src="/assets/imgs/installations.webp"
+                                            class="max-w-lg w-full h-auto rounded-lg object-contain shadow-sm"
+                                            loading="lazy"
+                                            width="280"
+                                            height="186"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -25,19 +43,35 @@
 
                 <!-- Repairs Card -->
                 <div class="card border-primary border shadow-lg">
-                    <div class="card-body">
-                        <h3 class="text-xl font-bold text-primary">Repairs</h3>
-                        <button
-                            onclick="handleButtonClick('btn-2')"
-                            class="btn btn-primary mt-3"
-                            type="button"
-                            id="btn-2"
-                        >
-                            Click for more
-                        </button>
+                    <div class="card-body p-4 md:p-6">
+                        <div class="flex items-center flex-col md:flex-row gap-4">
+                            <div id="icon-2" class="transition-all duration-300">
+                            <svg fill="#000000" class="h-12 w-12 text-primary"  height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.999 511.999" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g transform="translate(-1)"> <g> <g> <path d="M470.381,170.667h-85.333c-11.782,0-21.333,9.551-21.333,21.333v21.333h-85.333V128h21.333 c11.782,0,21.333-9.551,21.333-21.333V21.333C321.048,9.551,311.496,0,299.714,0H86.381C74.599,0,65.048,9.551,65.048,21.333 v85.333c0,11.782,9.551,21.333,21.333,21.333h21.333v158.464c0,53.873,43.663,97.536,97.536,97.536h158.464v21.333 c0,11.782,9.551,21.333,21.333,21.333h85.333c11.782,0,21.333-9.551,21.333-21.333V192 C491.714,180.218,482.163,170.667,470.381,170.667z M107.714,42.667h170.667v42.667h-21.333h-128h-21.333V42.667z M205.25,341.333c-7.417,0-14.486-1.479-20.94-4.146c0.865-0.636,1.706-1.32,2.489-2.103L201.884,320h33.83 c11.782,0,21.333-9.551,21.333-21.333c0-11.782-9.551-21.333-21.333-21.333h-42.667c-0.703,0-1.405,0.037-2.105,0.106 c-0.318,0.031-0.627,0.091-0.941,0.136c-0.375,0.054-0.75,0.097-1.122,0.171c-0.36,0.071-0.708,0.17-1.061,0.259 c-0.322,0.081-0.645,0.151-0.963,0.248c-0.346,0.105-0.68,0.234-1.018,0.356c-0.318,0.114-0.639,0.219-0.953,0.349 c-0.316,0.131-0.618,0.284-0.926,0.43c-0.323,0.152-0.649,0.296-0.966,0.465c-0.295,0.158-0.575,0.338-0.861,0.509 c-0.311,0.186-0.626,0.361-0.929,0.564c-0.316,0.211-0.613,0.447-0.917,0.674c-0.253,0.19-0.513,0.365-0.759,0.568 c-0.544,0.446-1.067,0.916-1.563,1.413l-21.333,21.333c-0.783,0.783-1.467,1.623-2.103,2.489 c-2.666-6.453-4.146-13.522-4.146-20.94V128h85.333v106.667c0,11.782,9.551,21.333,21.333,21.333h106.667v85.333H205.25z M449.048,384h-42.667v-21.333v-128v-21.333h42.667V384z"></path> <path d="M102.309,369.807c-8.483-9.515-23.364-9.515-31.847,0l-30.165,33.835c-24.154,24.104-24.154,64.62,0.839,89.612 c24.992,24.992,65.508,24.992,90.501,0c24.992-24.992,24.992-65.508,0-90.501L102.309,369.807z M101.466,463.085 c-8.33,8.33-21.831,8.33-30.161,0s-8.33-21.831,0-30.161l15.068-16.876l14.254,15.988 C109.796,441.254,109.796,454.755,101.466,463.085z"></path> </g> </g> </g> </g></svg>                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-primary text-center md:text-left flex-grow">Repairs</h3>
+                            <button
+                                onclick="handleButtonClick('btn-2')"
+                                class="btn btn-primary btn-sm md:btn-md w-auto lg:w-1/4"
+                                type="button"
+                                id="btn-2"
+                            >
+                                Click for more
+                            </button>
+                        </div>
                         <div class="collapse" id="content-2">
-                            <div class="collapse-content">
-                                <p class="py-4">Plumbing pipe repairs of any kind can be handled by the knowledgeable and experienced professionals at AttaPlumbing. Our team is committed to providing high-quality services that restore your plumbing system's functionality while minimizing inconvenience to your home. Count on our staff to deliver a solution that meets your needs, whether you require a complete re-piping or an urgent leak repair. Contact us today for a consultation and find out why we're the top pipe repair company in San Diego, CA.</p>
+                            <div class="collapse-content px-0">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <p class="font-poppins font-medium text-base md:text-lg">Plumbing pipe repairs of any kind can be handled by the knowledgeable and experienced professionals at AttaPlumbing. Our team is committed to providing high-quality services that restore your plumbing system's functionality while minimizing inconvenience to your home.</p>
+                                    <div class="flex justify-end">
+                                        <img
+                                            alt="Professional plumbing repair services"
+                                            src="/assets/imgs/repairs.webp"
+                                            class="max-w-lg w-full h-auto rounded-lg object-contain shadow-sm"
+                                            loading="lazy"
+                                            width="280"
+                                            height="186"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -45,42 +79,57 @@
 
                 <!-- Home Remodeling Card -->
                 <div class="card border-primary border shadow-lg">
-                    <div class="card-body">
-                        <h3 class="text-xl font-bold text-primary">Home Remodeling & Additions</h3>
-                        <button
-                            onclick="handleButtonClick('btn-3')"
-                            class="btn btn-primary mt-3"
-                            type="button"
-                            id="btn-3"
-                        >
-                            Click for more
-                        </button>
+                    <div class="card-body p-4 md:p-6">
+                        <div class="flex items-center flex-col md:flex-row gap-4">
+                            <div id="icon-3" class="transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-primary text-center md:text-left flex-grow">Home Remodeling & Additions</h3>
+                            <button
+                                onclick="handleButtonClick('btn-3')"
+                                class="btn btn-primary btn-sm md:btn-md w-auto lg:w-1/4"
+                                type="button"
+                                id="btn-3"
+                            >
+                                Click for more
+                            </button>
+                        </div>
                         <div class="collapse" id="content-3">
-                            <div class="collapse-content">
-                                <div class="space-y-6 py-4">
-                                    <div>
-                                        <h4 class="text-lg font-semibold">Bathroom Remodeling</h4>
-                                        <p>Redesign your bathroom with AttaPlumbing's San Diego renovation services. Discover how we can transform your bathroom with a contemporary and efficient design that fits your preferences.</p>
+                            <div class="collapse-content px-0">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="text-base md:text-lg font-semibold">Bathroom Remodeling</h4>
+                                            <p class="font-poppins font-medium text-base md:text-lg">Redesign your bathroom with AttaPlumbing's San Diego renovation services.</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base md:text-lg font-semibold">Kitchen Remodeling</h4>
+                                            <p class="font-poppins font-medium text-base md:text-lg">AttaPlumbing's remodeling services in San Diego will help you realize your kitchen vision.</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base md:text-lg font-semibold">Home Renovation</h4>
+                                            <p class="font-poppins font-medium text-base md:text-lg">AttaPlumbing offers comprehensive home renovation services in San Diego.</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base md:text-lg font-semibold">Home Additions</h4>
+                                            <p class="font-poppins font-medium text-base md:text-lg">AttaPlumbing's experienced addition services in San Diego will help you expand your property.</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base md:text-lg font-semibold">ADU Services</h4>
+                                            <p class="font-poppins font-medium text-base md:text-lg">AttaPlumbing's ADU services in San Diego help you maximize the potential of additional living space.</p>
+                                        </div>
                                     </div>
-                                    
-                                    <div>
-                                        <h4 class="text-lg font-semibold">Kitchen Remodeling</h4>
-                                        <p>AttaPlumbing's remodeling services in San Diego will help you realize your kitchen vision. Whether you choose modern or classic styles, our professionals will design a kitchen that meets your specifications.</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="text-lg font-semibold">Home Renovation</h4>
-                                        <p>AttaPlumbing offers comprehensive home renovation services in San Diego that can significantly transform your living space. Our precision and attention to detail ensure a smooth process for both single-room upgrades and full-house remodels.</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="text-lg font-semibold">Home Additions</h4>
-                                        <p>AttaPlumbing's experienced addition services in San Diego will help you expand the possibilities for your property. Whether you're looking to extend your living space or increase the value of your home, our team delivers exceptional results with professionalism and expertise.</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="text-lg font-semibold">ADU Services</h4>
-                                        <p>AttaPlumbing's ADU services in San Diego help you maximize the potential of additional living space. Whether you want to generate rental income, accommodate multigenerational living, or expand your property, our team provides expertly designed and functional solutions to meet your needs.</p>
+                                    <div class="flex justify-end">
+                                        <img
+                                            alt="Home remodeling and addition services"
+                                            src="/assets/imgs/remodel.webp"
+                                            class="max-w-lg w-full h-auto rounded-lg object-contain shadow-sm"
+                                            loading="lazy"
+                                            width="280"
+                                            height="186"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -90,19 +139,39 @@
 
                 <!-- Conventional Water Heaters Card -->
                 <div class="card border-primary border shadow-lg">
-                    <div class="card-body">
-                        <h3 class="text-xl font-bold text-primary">Conventional Water Heaters</h3>
-                        <button
-                            onclick="handleButtonClick('btn-4')"
-                            class="btn btn-primary mt-3"
-                            type="button"
-                            id="btn-4"
-                        >
-                            Click for more
-                        </button>
+                    <div class="card-body p-4 md:p-6">
+                        <div class="flex items-center flex-col md:flex-row gap-4">
+                            <div id="icon-4" class="transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4h8v16H8V4zm2 4h4v12h-4V8z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v2m0 4v2m0 4v2" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-primary text-center md:text-left flex-grow">Conventional Water Heaters</h3>
+                            <button
+                                onclick="handleButtonClick('btn-4')"
+                                class="btn btn-primary btn-sm md:btn-md w-auto lg:w-1/4"
+                                type="button"
+                                id="btn-4"
+                            >
+                                Click for more
+                            </button>
+                        </div>
                         <div class="collapse" id="content-4">
-                            <div class="collapse-content">
-                                <p class="py-4">A conventional water heater (tank) is a popular choice due to its cost-effectiveness and ease of installation. It can easily be integrated into any property and is generally less expensive to install compared to other water heating systems.</p>
+                            <div class="collapse-content px-0">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <p class="font-poppins font-medium text-base md:text-lg">A conventional water heater (tank) is a popular choice due to its cost-effectiveness and ease of installation. It can easily be integrated into any property and is generally less expensive to install compared to other water heating systems.</p>
+                                    <div class="flex justify-end">
+                                        <img
+                                            alt="Conventional water heater installation"
+                                            src="/assets/imgs/waterHeater.webp"
+                                            class="max-w-lg w-full h-auto rounded-lg object-contain shadow-sm"
+                                            loading="lazy"
+                                            width="280"
+                                            height="186"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -110,19 +179,38 @@
 
                 <!-- Tankless Water Heaters Card -->
                 <div class="card border-primary border shadow-lg">
-                    <div class="card-body">
-                        <h3 class="text-xl font-bold text-primary">Tankless Water Heaters</h3>
-                        <button
-                            onclick="handleButtonClick('btn-5')"
-                            class="btn btn-primary mt-3"
-                            type="button"
-                            id="btn-5"
-                        >
-                            Click for more
-                        </button>
+                    <div class="card-body p-4 md:p-6">
+                        <div class="flex items-center flex-col md:flex-row gap-4">
+                            <div id="icon-5" class="transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-primary text-center md:text-left flex-grow">Tankless Water Heaters</h3>
+                            <button
+                                onclick="handleButtonClick('btn-5')"
+                                class="btn btn-primary btn-sm md:btn-md w-auto lg:w-1/4"
+                                type="button"
+                                id="btn-5"
+                            >
+                                Click for more
+                            </button>
+                        </div>
                         <div class="collapse" id="content-5">
-                            <div class="collapse-content">
-                                <p class="py-4">The tankless water heater, one of the most innovative and popular options available, was first introduced in 1929 by Stiebel-Elton, who invented the first electric tankless model, making the system more readily available. Designed to provide hot water on demand, it offers a more efficient alternative to traditional storage systems, where hot water can be depleted before meeting your family's needs.</p>
+                            <div class="collapse-content px-0">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <p class="font-poppins font-medium text-base md:text-lg">The tankless water heater, one of the most innovative and popular options available, was first introduced in 1929 by Stiebel-Elton, who invented the first electric tankless model.</p>
+                                    <div class="flex justify-end">
+                                        <img
+                                            alt="Tankless water heater installation"
+                                            src="assets/imgs/tankless.webp"
+                                            class="max-w-lg w-full h-auto rounded-lg object-contain shadow-sm"
+                                            loading="lazy"
+                                            width="280"
+                                            height="186"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,19 +218,39 @@
 
                 <!-- Fire Place Retrofits Card -->
                 <div class="card border-primary border shadow-lg">
-                    <div class="card-body">
-                        <h3 class="text-xl font-bold text-primary">Fire Place Retrofits</h3>
-                        <button
-                            onclick="handleButtonClick('btn-6')"
-                            class="btn btn-primary mt-3"
-                            type="button"
-                            id="btn-6"
-                        >
-                            Click for more
-                        </button>
+                    <div class="card-body p-4 md:p-6">
+                        <div class="flex items-center flex-col md:flex-row gap-4">
+                            <div id="icon-6" class="transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-primary text-center md:text-left flex-grow">Fire Place Retrofits</h3>
+                            <button
+                                onclick="handleButtonClick('btn-6')"
+                                class="btn btn-primary btn-sm md:btn-md w-auto lg:w-1/4"
+                                type="button"
+                                id="btn-6"
+                            >
+                                Click for more
+                            </button>
+                        </div>
                         <div class="collapse" id="content-6">
-                            <div class="collapse-content">
-                                <p class="py-4">Attaplumbing's skilled gas experts ensure that every installation is completed correctly and in full compliance with all state and municipal codes. A fireplace insert is a prefabricated unit designed to fit into the firebox of an existing open brick fireplace. No additional construction, demolition, or modifications are needed. Gas inserts vent through their own pipe, extending up the chimney, and can operate on either natural gas or propane.</p>
+                            <div class="collapse-content px-0">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <p class="font-poppins font-medium text-base md:text-lg">Attaplumbing's skilled gas experts ensure that every installation is completed correctly and in full compliance with all state and municipal codes.</p>
+                                    <div class="flex justify-end">
+                                        <img
+                                            alt="Fireplace retrofit services"
+                                            src="assets/imgs/fireplace.webp"
+                                            class="max-w-lg w-full h-auto rounded-lg object-contain shadow-sm"
+                                            loading="lazy"
+                                            width="280"
+                                            height="186"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,19 +258,36 @@
 
                 <!-- Gas line Installations Card -->
                 <div class="card border-primary border shadow-lg">
-                    <div class="card-body">
-                        <h3 class="text-xl font-bold text-primary">Gas line Installations and Retrofits</h3>
-                        <button
-                            onclick="handleButtonClick('btn-7')"
-                            class="btn btn-primary mt-3"
-                            type="button"
-                            id="btn-7"
-                        >
-                            Click for more
-                        </button>
+                    <div class="card-body p-4 md:p-6">
+                        <div class="flex items-center flex-col md:flex-row gap-4">
+                            <div id="icon-7" class="transition-all duration-300">
+                                <svg fill="#000000" viewBox="0 0 50 50" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M25 4.53125L24.28125 5.3125C24.28125 5.3125 23.207031 6.425781 22.15625 8.0625C21.105469 9.699219 20 11.867188 20 14.1875C20 15.5625 20.515625 16.933594 21.375 18.03125C21.40625 18.070313 21.4375 18.117188 21.46875 18.15625C20.445313 18.265625 19.453125 18.425781 18.5 18.625C18.59375 18.332031 18.671875 18.019531 18.71875 17.71875C18.9375 16.347656 18.714844 14.921875 18.09375 13.71875C16.042969 9.738281 13.71875 7.6875 13.71875 7.6875L13 7.125L12.34375 7.75C12.34375 7.75 8.855469 11.089844 9.4375 15.96875C9.625 17.53125 10.277344 18.769531 10.90625 19.5625C11.183594 19.914063 11.652344 20.421875 12.28125 20.84375C11.679688 21.171875 11.113281 21.523438 10.59375 21.90625C10.5625 21.636719 10.503906 21.355469 10.4375 21.09375C10.082031 19.722656 9.292969 18.433594 8.0625 17.6875C4.6875 15.640625 2.84375 14.375 2.84375 14.375L1.96875 13.78125L1.4375 14.6875C1.4375 14.6875 -1.40625 19.15625 1.21875 23.4375C2.042969 24.777344 3.160156 25.636719 4.0625 26.09375C4.585938 26.359375 5.488281 26.6875 6.5625 26.71875C6.742188 26.722656 6.9375 26.707031 7.125 26.6875C7.027344 27.117188 6.96875 27.546875 6.96875 28C6.96875 29.734375 7.738281 31.296875 9 32.65625L9 37C9 39.9375 10.96875 42.476563 13.875 44.21875C16.78125 45.960938 20.695313 47 25 47C29.304688 47 33.21875 45.960938 36.125 44.21875C39.03125 42.476563 41 39.9375 41 37L41 32.65625C42.261719 31.296875 43.03125 29.734375 43.03125 28C43.03125 27.546875 42.972656 27.117188 42.875 26.6875C43.0625 26.707031 43.257813 26.722656 43.4375 26.71875C44.511719 26.6875 45.414063 26.359375 45.9375 26.09375C46.839844 25.636719 47.960938 24.777344 48.78125 23.4375C51.40625 19.15625 48.5625 14.6875 48.5625 14.6875L48.03125 13.78125L47.15625 14.375C47.15625 14.375 45.3125 15.640625 41.9375 17.6875C40.707031 18.433594 39.917969 19.722656 39.5625 21.09375C39.496094 21.355469 39.4375 21.636719 39.40625 21.90625C38.886719 21.523438 38.320313 21.171875 37.71875 20.84375C38.347656 20.421875 38.816406 19.914063 39.09375 19.5625C39.722656 18.769531 40.375 17.53125 40.5625 15.96875C41.144531 11.089844 37.65625 7.75 37.65625 7.75L37 7.125L36.28125 7.6875C36.28125 7.6875 33.957031 9.738281 31.90625 13.71875C31.285156 14.921875 31.0625 16.347656 31.28125 17.71875C31.328125 18.019531 31.40625 18.332031 31.5 18.625C30.546875 18.425781 29.554688 18.265625 28.53125 18.15625C28.5625 18.117188 28.59375 18.070313 28.625 18.03125C29.484375 16.933594 30 15.5625 30 14.1875C30 11.867188 28.894531 9.699219 27.84375 8.0625C26.792969 6.425781 25.71875 5.3125 25.71875 5.3125 Z M 25 7.625C25.359375 8.046875 25.570313 8.246094 26.15625 9.15625C27.105469 10.628906 28 12.539063 28 14.1875C28 15.023438 27.621094 16.0625 27.03125 16.8125C26.859375 17.035156 26.664063 17.210938 26.46875 17.375C26.476563 17.3125 26.5 17.25 26.5 17.1875C26.5 15.6875 25 14.09375 25 14.09375C25 14.09375 23.5 15.6875 23.5 17.1875C23.5 17.25 23.523438 17.3125 23.53125 17.375C23.335938 17.210938 23.140625 17.035156 22.96875 16.8125C22.378906 16.0625 22 15.023438 22 14.1875C22 12.539063 22.894531 10.628906 23.84375 9.15625C24.429688 8.246094 24.640625 8.046875 25 7.625 Z M 13.15625 10C13.871094 10.738281 15.011719 12.042969 16.34375 14.625C16.734375 15.382813 16.898438 16.464844 16.75 17.40625C16.707031 17.675781 16.652344 17.921875 16.5625 18.15625C16.53125 18.097656 16.507813 18.050781 16.46875 18C15.371094 16.65625 13.90625 14.84375 13.90625 14.84375C13.90625 14.84375 12.894531 17.328125 13.8125 19.40625C13.804688 19.402344 13.789063 19.410156 13.78125 19.40625C13.203125 19.117188 12.664063 18.589844 12.46875 18.34375C12.066406 17.835938 11.570313 16.867188 11.4375 15.75C11.082031 12.765625 12.429688 10.875 13.15625 10 Z M 36.84375 10C37.570313 10.875 38.917969 12.765625 38.5625 15.75C38.429688 16.867188 37.933594 17.835938 37.53125 18.34375C37.335938 18.589844 36.796875 19.117188 36.21875 19.40625C36.210938 19.410156 36.195313 19.402344 36.1875 19.40625C37.105469 17.328125 36.09375 14.84375 36.09375 14.84375C36.09375 14.84375 34.628906 16.65625 33.53125 18C33.492188 18.050781 33.46875 18.097656 33.4375 18.15625C33.347656 17.921875 33.292969 17.675781 33.25 17.40625C33.101563 16.464844 33.265625 15.382813 33.65625 14.625C34.988281 12.042969 36.128906 10.738281 36.84375 10 Z M 2.75 16.6875C3.332031 17.078125 4.28125 17.738281 7.03125 19.40625C7.6875 19.804688 8.257813 20.664063 8.5 21.59375C8.574219 21.882813 8.613281 22.164063 8.625 22.4375C8.570313 22.398438 8.527344 22.34375 8.46875 22.3125C6.910156 21.550781 4.8125 20.53125 4.8125 20.53125C4.8125 20.53125 4.933594 23.214844 6.625 24.71875C6.613281 24.71875 6.605469 24.71875 6.59375 24.71875C5.945313 24.699219 5.246094 24.453125 4.96875 24.3125C4.390625 24.019531 3.527344 23.335938 2.9375 22.375C1.410156 19.886719 2.246094 17.734375 2.75 16.6875 Z M 47.25 16.6875C47.753906 17.734375 48.589844 19.886719 47.0625 22.375C46.472656 23.335938 45.609375 24.019531 45.03125 24.3125C44.753906 24.453125 44.054688 24.699219 43.40625 24.71875C43.394531 24.71875 43.386719 24.71875 43.375 24.71875C45.066406 23.214844 45.1875 20.53125 45.1875 20.53125C45.1875 20.53125 43.089844 21.550781 41.53125 22.3125C41.472656 22.34375 41.429688 22.398438 41.375 22.4375C41.386719 22.164063 41.425781 21.882813 41.5 21.59375C41.742188 20.664063 42.3125 19.804688 42.96875 19.40625C45.71875 17.738281 46.667969 17.078125 47.25 16.6875 Z M 25 20.03125C29.546875 20.03125 33.644531 21.003906 36.53125 22.53125C39.417969 24.058594 40.96875 26.039063 40.96875 28C40.96875 29.960938 39.417969 31.941406 36.53125 33.46875C33.644531 34.996094 29.546875 35.96875 25 35.96875C20.453125 35.96875 16.355469 34.996094 13.46875 33.46875C10.582031 31.941406 9.03125 29.960938 9.03125 28C9.03125 26.039063 10.582031 24.058594 13.46875 22.53125C16.355469 21.003906 20.453125 20.03125 25 20.03125 Z M 11 34.375C11.46875 34.695313 11.972656 35 12.5 35.28125C13.113281 35.605469 13.78125 35.914063 14.46875 36.1875C14.46875 36.210938 14.46875 36.226563 14.46875 36.25C14.46875 37.355469 15.242188 38.476563 16.21875 38.75C17.183594 39.023438 17.984375 38.367188 18 37.28125C19.5625 37.640625 21.25 37.863281 23 37.96875C23 37.980469 23 37.988281 23 38C23 39.105469 23.894531 40 25 40C26.105469 40 27 39.105469 27 38C27 37.988281 27 37.980469 27 37.96875C28.75 37.863281 30.4375 37.640625 32 37.28125C32.015625 38.367188 32.816406 39.023438 33.78125 38.75C34.757813 38.476563 35.53125 37.355469 35.53125 36.25C35.53125 36.226563 35.53125 36.210938 35.53125 36.1875C36.21875 35.914063 36.886719 35.605469 37.5 35.28125C38.027344 35 38.53125 34.695313 39 34.375L39 37C39 39.035156 37.617188 40.988281 35.09375 42.5C32.570313 44.011719 28.980469 45 25 45C21.019531 45 17.429688 44.011719 14.90625 42.5C12.382813 40.988281 11 39.035156 11 37Z"></path></g></svg>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-primary text-center md:text-left flex-grow">Gas line Installations</h3>
+                            <button
+                                onclick="handleButtonClick('btn-7')"
+                                class="btn btn-primary btn-sm md:btn-md w-auto lg:w-1/4"
+                                type="button"
+                                id="btn-7"
+                            >
+                                Click for more
+                            </button>
+                        </div>
                         <div class="collapse" id="content-7">
-                            <div class="collapse-content">
-                                <p class="py-4">A new natural gas installation for a property typically involves routing the gas line underground using the proper plumbing materials. AttaPlumbing's professionals handle the installation and pressure testing of the pipes, ensuring the system is safe and compliant with all San Diego building codes. The underground installation terminates at the foundation of the building, where the natural gas provider installs a gas meter. From this meter, gas piping can be routed underground to various access points throughout the building. However, it is most commonly routed through walls or the attic to facilitate easier access and future modifications.</p>
+                            <div class="collapse-content px-0">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <p class="font-poppins font-medium text-base md:text-lg">A new natural gas installation for a property typically involves routing the gas line underground using the proper plumbing materials.</p>
+                                    <div class="flex justify-end">
+                                        <img
+                                            alt="Professional gas line installation"
+                                            src="assets/imgs/gasLine.webp"
+                                            class="max-w-lg w-full h-auto rounded-lg object-contain shadow-sm"
+                                            loading="lazy"
+                                            width="280"
+                                            height="186"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -171,49 +296,52 @@
         </div>
     </div>
 </div>
-
-    <script>
-        // State management for buttons
-        const buttonStates = {
-            "btn-1": { isDisabled: false, text: "Click for more" },
-            "btn-2": { isDisabled: false, text: "Click for more" },
-            "btn-3": { isDisabled: false, text: "Click for more" },
-            "btn-4": { isDisabled: false, text: "Click for more" },
-            "btn-5": { isDisabled: false, text: "Click for more" },
-            "btn-6": { isDisabled: false, text: "Click for more" },
-            "btn-7": { isDisabled: false, text: "Click for more" }
-        };
-
-        // Handle button click
-        function handleButtonClick(buttonId) {
-            const buttonState = buttonStates[buttonId];
-            if (buttonState.isDisabled) return;
-
-            // Update button state
-            buttonState.isDisabled = true;
-            buttonState.text = buttonState.text === "Click for more" ? "Close" : "Click for more";
-            
-            // Get the button and corresponding collapse element
-            const button = document.getElementById(buttonId);
-            const collapseId = buttonId.replace('btn-', 'content-');
-            const collapseElement = document.getElementById(collapseId);
-            
-            if (button) {
-                // Update button text
-                button.textContent = buttonState.text;
-                
-                // Toggle collapse using DaisyUI's data attribute
-                if (buttonState.text === "Close") {
-                    collapseElement.setAttribute('open', 'open');
-                } else {
-                    collapseElement.removeAttribute('open');
-                }
-            }
-
-            // Re-enable button after delay
-            setTimeout(() => {
-                buttonState.isDisabled = false;
-            }, 300);
-        }
-    </script>
 </div>
+
+<script>
+    // State management for buttons
+    const buttonStates = {
+        "btn-1": { isDisabled: false, text: "Click for more" },
+        "btn-2": { isDisabled: false, text: "Click for more" },
+        "btn-3": { isDisabled: false, text: "Click for more" },
+        "btn-4": { isDisabled: false, text: "Click for more" },
+        "btn-5": { isDisabled: false, text: "Click for more" },
+        "btn-6": { isDisabled: false, text: "Click for more" },
+        "btn-7": { isDisabled: false, text: "Click for more" }
+    };
+
+    // Handle button click
+    function handleButtonClick(buttonId) {
+        const buttonState = buttonStates[buttonId];
+        if (buttonState.isDisabled) return;
+
+        // Update button state
+        buttonState.isDisabled = true;
+        buttonState.text = buttonState.text === "Click for more" ? "Close" : "Click for more";
+        
+        // Get elements
+        const button = document.getElementById(buttonId);
+        const collapseId = buttonId.replace('btn-', 'content-');
+        const collapseElement = document.getElementById(collapseId);
+        const iconElement = document.getElementById(`icon-${buttonId.split('-')[1]}`);
+        
+        if (button) {
+            // Update button text
+            button.textContent = buttonState.text;
+            
+            // Toggle collapse and icon
+            if (buttonState.text === "Close") {
+                collapseElement.setAttribute('open', 'open');
+                iconElement.classList.add('opacity-0', 'h-0', 'w-0', 'overflow-hidden');
+            } else {
+                collapseElement.removeAttribute('open');
+                iconElement.classList.remove('opacity-0', 'h-0', 'w-0', 'overflow-hidden');
+            }
+        }
+
+        // Re-enable button after delay
+        setTimeout(() => {
+            buttonState.isDisabled = false;
+        }, 300);
+    }
+</script>

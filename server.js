@@ -15,7 +15,7 @@ const {
   UPLOADSDIR,
 } = process.env;
 
-const fetchMetaData = require('./controllers/Middleware/metaDataMiddleware')
+const fetchMetaData = require("./controllers/Middleware/metaDataMiddleware");
 const app = express();
 
 const sequelize = require("./config/connection");
@@ -38,7 +38,7 @@ const hbs = exphbs.create({
       );
     },
     ifEquals: function (arg1, arg2, options) {
-      return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+      return arg1 == arg2 ? options.fn(this) : options.inverse(this);
     },
     includes: function (str, substr) {
       if (typeof str === "string" && typeof substr === "string") {
@@ -93,6 +93,14 @@ const hbs = exphbs.create({
           return options.inverse(this);
       }
     },
+    repeat: function (times, block) {
+      console.log("Repeat helper called with times =", times); // Debug log
+      let result = "";
+      for (let i = 0; i < times; i++) {
+        result += block.fn(i);
+      }
+      return result;
+    },
   },
   cache: false, // Disable caching in development
 });
@@ -114,18 +122,18 @@ app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(fetchMetaData)
+app.use(fetchMetaData);
 app.use(express.static(PUBLICFOLDER));
 app.use(express.static(UPLOADSDIR));
 
-
 app.use(routes);
 
-const base = process.env.PAYPAL_ENV === "live"
-  ? "https://api-m.paypal.com"
-  : "https://api-m.sandbox.paypal.com";
+const base =
+  process.env.PAYPAL_ENV === "live"
+    ? "https://api-m.paypal.com"
+    : "https://api-m.sandbox.paypal.com";
 
-  console.log(base)
+console.log(base);
 app.use(express.static("client/dist"));
 // parse post params sent in body in json format
 
@@ -204,7 +212,7 @@ const createOrder = async (cart, amt, tax) => {
     intent: "CAPTURE",
     purchase_units: [
       {
-        reference_id: reference_id,  // Unique identifier for the transaction
+        reference_id: reference_id, // Unique identifier for the transaction
         amount: {
           currency_code: "USD",
           value: fullTotal.toFixed(2),
@@ -227,7 +235,7 @@ const createOrder = async (cart, amt, tax) => {
               value: item.price.toFixed(2),
             },
             quantity: item.quantity,
-            category: "PHYSICAL_GOODS"
+            category: "PHYSICAL_GOODS",
           };
         }),
       },

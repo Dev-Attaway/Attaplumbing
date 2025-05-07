@@ -7,3 +7,31 @@
     font-size: clamp(0.875rem, 2vw, 1.125rem); /* Adjust values as needed */
   }
 }
+@layer base {
+  @font-face {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 100 1000;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/dmsans/v14/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2)
+      format("woff2");
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2)
+      format("woff2");
+  }
+
+  @font-face {
+    font-family: "Rokkitt";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rokkitt/v32/qFdG35qfgYFjGy5hukqqhw5XeRg.woff2)
+      format("woff2");
+  }
+}
