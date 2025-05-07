@@ -119,10 +119,10 @@ router.get("/home", async (req, res) => {
   }
 });
 
-router.get("/how-it-works", async (req, res) => {
+router.get("/service-process", async (req, res) => {
   console.log(res.locals);
 
-  res.render("how-it-works");
+  res.render("service-process");
 });
 
 router.get("/services", async (req, res) => {

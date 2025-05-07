@@ -9,6 +9,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        DMsans: ["DM Sans", "sans-serif"], // Default sans-serif font
+        poppins: ["Poppins", "sans-serif"], // Poppins font family
+        rokkitt: ["Rokkitt", "serif"], // Rokkitt font family
+        // Add as many custom font families as you need
+      },
       backgroundPosition: {
         bottom: "bottom",
         "bottom-4": "center bottom 1rem",
@@ -22,9 +28,6 @@ module.exports = {
         "right-top": "right top",
         top: "top",
         "top-4": "center top 1rem",
-      },
-      fontFamily: {
-        DMsans: ["DM+Sans", "sans-serif"],
       },
       colors: {
         primaryQ: "#df8327", // Custom orange color

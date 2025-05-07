@@ -1,73 +1,88 @@
-<footer class="relative bg-white pt-5 z-50">
-  <div class=" py-5 w-full">
-    
+<footer
+  class="footer p-10 bg-base-100 text-base-content border-2 border-base-300"
+>
+  <div class="container place-items-center mx-auto">
     <!-- Footer Main Section -->
-    <div class="flex flex-wrap justify-center footer-row">
-      
-
-      <!-- Navigation Links -->
-      <nav>
-        <!-- Info Section -->
-        <div>
-          <h1 class="text-6xl frog-font capitalize text-frogBase  mb-3">rag frog revival</h1>
-          <ul class="flex flex-row justify-center items-center space-x-3">
-            <li><a href="/about" class=" text-2xl text-moonstoneBase hover:text-gray-900">About Us</a></li>
-            <li><a href="/contact" class="text-2xl text-moonstoneBase hover:text-gray-900">Contact</a></li>
-            <li><a href="/shop-page" class="text-2xl text-moonstoneBase hover:text-gray-900">Shop</a></li>
-            <li><a href="/blog" class="text-2xl text-moonstoneBase hover:text-gray-900">Blog</a></li>
-            <li><a href="/orderConfirm" class="text-2xl text-moonstoneBase hover:text-gray-900">test</a></li>
-
-          </ul>
-        </div>
-
-        <!-- Social Links (Optional) -->
-        {{!-- Uncomment if needed --}}
-        <!--
-        <div>
-          <h5 class="text-lg font-bold mb-3">Connect With Us</h5>
-          <div class="flex space-x-4 justify-center md:justify-start">
-            <a href="https://facebook.com" target="_blank" class="text-moonstoneBase hover:text-gray-900">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" class="text-moonstoneBase hover:text-gray-900">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" class="text-moonstoneBase hover:text-gray-900">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        -->
-      </nav>
+    <div class="flex flex-col items-center text-center">
+      <!-- Branding and Navigation -->
+      <div class="mb-8">
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl italic font-DMsans font-bold !text-primary [text-shadow:_2px_1px_0px_#000000] mb-4"
+        >
+          AttaPlumbing
+        </h1>
+        <nav class="flex flex-wrap justify-center gap-4 md:gap-6">
+          <a
+            href="/about"
+            class="link link-hover text-lg sm:text-xl md:text-2xl text-secondary-content"
+          >
+            About Us
+          </a>
+          <a
+            href="/services"
+            class="link link-hover text-lg sm:text-xl md:text-2xl text-secondary-content"
+          >
+            Services
+          </a>
+          <a
+            href="/service-process"
+            class="link link-hover text-lg sm:text-xl md:text-2xl text-secondary-content"
+          >
+            Service Process
+          </a>
+          <a
+            href="/contact"
+            class="link link-hover text-lg sm:text-xl md:text-2xl text-secondary-content"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
     </div>
 
     <!-- Footer Bottom Section -->
-    <div class="flex flex-col md:flex-row md:justify-between items-center p-4 mt-4 border-t border-egyptianBlue-950 text-gray-600">
-      
-      <!-- Powered By -->
-      <p class="flex items-center">
-        <img src="/assets/imgs/queue.jpg" alt="Queue Development Logo" class="w-8 mr-2" />
-        <a href="https://queuedevelop.com" target="_blank" class=" text-egyptianBlue-950 hover:underline">
-          Powered by Queue Development
-        </a>
-      </p>
+    <div class="border-t border-base-300 pt-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <!-- Powered By -->
+        <div class="flex items-center">
+          <img
+            src="/assets/imgs/queue.jpg"
+            alt="Queue Development Logo"
+            class="w-8 h-8 rounded-full mr-2"
+          />
+          <a
+            href="https://queuedevelop.com"
+            target="_blank"
+            class="text-sm md:text-base link link-hover"
+          >
+            Powered by Queue Development
+          </a>
+        </div>
 
-      <!-- Privacy Links -->
-      <nav class="flex flex-wrap justify-center space-x-4 text-lg mt-3 md:mt-0">
-        <a href="/accessibility" class="text-moonstoneBase hover:text-gray-900">Accessibility</a>
-        <span>|</span>
-        <a href="/terms" class="text-moonstoneBase hover:text-gray-900">Terms & Conditions</a>
-        <span>|</span>
-        <a href="/privacy" class="text-moonstoneBase hover:text-gray-900">Privacy Statement</a>
-        <span>|</span>
-        <a href="/policy" class="text-moonstoneBase hover:text-gray-900">Policy</a>
-      </nav>
+        <!-- Privacy Links -->
+        <nav class="flex flex-wrap justify-center gap-3 md:gap-4">
+          <a href="/accessibility" class="link link-hover text-sm md:text-base">
+            Accessibility
+          </a>
+          <span class="text-neutral-content">|</span>
+          <a href="/terms" class="link link-hover text-sm md:text-base">
+            Terms & Conditions
+          </a>
+          <span class="text-neutral-content">|</span>
+          <a href="/privacy" class="link link-hover text-sm md:text-base">
+            Privacy Statement
+          </a>
+          <span class="text-neutral-content">|</span>
+          <a href="/policy" class="link link-hover text-sm md:text-base">
+            Policy
+          </a>
+        </nav>
 
-      <!-- Copyright -->
-      <p class="text-sm mt-3 md:mt-0">
-        © 2025 Rag Frog Revival, LLC. All rights reserved.
-      </p>
+        <!-- Copyright -->
+        <p class="text-xs md:text-sm text-neutral-content">
+          © 2025 AttaPlumbing, LLC. All rights reserved.
+        </p>
+      </div>
     </div>
-
   </div>
 </footer>
