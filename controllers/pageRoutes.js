@@ -51,73 +51,73 @@ router.use((req, res, next) => {
   next(); // Proceed to the next middleware or route
 });
 
-router.get("/", async (req, res) => {
-  try {
-    const productsDb = await Product.findAll({
-      where: {
-        featured: true,
-        activeUnit: true,
-      },
-      include: [
-        {
-          model: Category, // Include the Category model
-        },
-        {
-          model: SubCategory, // Include the SubCategory model through ProductSubCategory
-          through: {
-            model: ProductSubCategory, // This is the join table model
-            attributes: [], // Exclude attributes from the join table, optional
-          },
-        },
-      ],
-    });
+// router.get("/", async (req, res) => {
+//   try {
+//     const productsDb = await Product.findAll({
+//       where: {
+//         featured: true,
+//         activeUnit: true,
+//       },
+//       include: [
+//         {
+//           model: Category, // Include the Category model
+//         },
+//         {
+//           model: SubCategory, // Include the SubCategory model through ProductSubCategory
+//           through: {
+//             model: ProductSubCategory, // This is the join table model
+//             attributes: [], // Exclude attributes from the join table, optional
+//           },
+//         },
+//       ],
+//     });
 
-    // Convert Sequelize instances to plain JavaScript objects
+//     // Convert Sequelize instances to plain JavaScript objects
 
-    // instance of product to plain JavaScript objects
-    const products = productsDb.map((product) => product.get({ plain: true }));
+//     // instance of product to plain JavaScript objects
+//     const products = productsDb.map((product) => product.get({ plain: true }));
 
-    res.render("newsSplash", {
-      products,
-    });
-  } catch (error) {
-    res.render("home");
-  }
-});
+//     res.render("newsSplash", {
+//       products,
+//     });
+//   } catch (error) {
+//     res.render("home");
+//   }
+// });
 
-router.get("/home", async (req, res) => {
-  try {
-    const productsDb = await Product.findAll({
-      where: {
-        featured: true,
-        activeUnit: true,
-      },
-      include: [
-        {
-          model: Category, // Include the Category model
-        },
-        {
-          model: SubCategory, // Include the SubCategory model through ProductSubCategory
-          through: {
-            model: ProductSubCategory, // This is the join table model
-            attributes: [], // Exclude attributes from the join table, optional
-          },
-        },
-      ],
-    });
+// router.get("/home", async (req, res) => {
+//   try {
+//     const productsDb = await Product.findAll({
+//       where: {
+//         featured: true,
+//         activeUnit: true,
+//       },
+//       include: [
+//         {
+//           model: Category, // Include the Category model
+//         },
+//         {
+//           model: SubCategory, // Include the SubCategory model through ProductSubCategory
+//           through: {
+//             model: ProductSubCategory, // This is the join table model
+//             attributes: [], // Exclude attributes from the join table, optional
+//           },
+//         },
+//       ],
+//     });
 
-    // Convert Sequelize instances to plain JavaScript objects
+//     // Convert Sequelize instances to plain JavaScript objects
 
-    // instance of product to plain JavaScript objects
-    const products = productsDb.map((product) => product.get({ plain: true }));
+//     // instance of product to plain JavaScript objects
+//     const products = productsDb.map((product) => product.get({ plain: true }));
 
-    res.render("home", {
-      products,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+//     res.render("home", {
+//       products,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 router.get("/service-process", async (req, res) => {
   console.log(res.locals);
@@ -145,9 +145,9 @@ router.get("/contact", async (req, res) => {
   res.render("contact");
 });
 
-router.get("/orderConfirm", async (req, res) => {
-  res.render("orderConfirm");
-});
+// router.get("/orderConfirm", async (req, res) => {
+//   res.render("orderConfirm");
+// });
 
 // adding shop page route
 // router.get("/shop-page", async (req, res) => {
@@ -279,279 +279,279 @@ router.post("/contact/submit", async (req, res) => {
   }
 });
 
-router.get("/unsubscribe/:email", async (req, res) => {
-  const email = req.params.email; // ✅ correctly use route param
+// router.get("/unsubscribe/:email", async (req, res) => {
+//   const email = req.params.email; // ✅ correctly use route param
 
-  if (!email) {
-    return res.status(400).send("Email is required.");
-  }
+//   if (!email) {
+//     return res.status(400).send("Email is required.");
+//   }
 
-  try {
-    const lead = await Leads.findOne({
-      where: {
-        formData: {
-          email: email,
-        },
-      },
-    });
+//   try {
+//     const lead = await Leads.findOne({
+//       where: {
+//         formData: {
+//           email: email,
+//         },
+//       },
+//     });
 
-    if (!lead) {
-      return res
-        .status(404)
-        .send("We couldn't find a subscription with that email.");
-    }
+//     if (!lead) {
+//       return res
+//         .status(404)
+//         .send("We couldn't find a subscription with that email.");
+//     }
 
-    await lead.destroy();
+//     await lead.destroy();
 
-    res.send("You've been unsubscribed successfully.");
-  } catch (err) {
-    console.error("Unsubscribe error:", err);
-    res.status(500).send("An error occurred. Please try again.");
-  }
-});
+//     res.send("You've been unsubscribed successfully.");
+//   } catch (err) {
+//     console.error("Unsubscribe error:", err);
+//     res.status(500).send("An error occurred. Please try again.");
+//   }
+// });
 
-router.post("/newsletter/subscribe", async (req, res) => {
-  try {
-    const { formData } = req.body;
-    console.log(formData.email, "this is my check");
-    if (!formData?.email) {
-      return res.status(400).json({ message: "Email is required." });
-    }
+// router.post("/newsletter/subscribe", async (req, res) => {
+//   try {
+//     const { formData } = req.body;
+//     console.log(formData.email, "this is my check");
+//     if (!formData?.email) {
+//       return res.status(400).json({ message: "Email is required." });
+//     }
 
-    console.log("Email exsistiss");
+//     console.log("Email exsistiss");
 
-    // 🔍 Check if this email already exists in formData.email
-    const existing = await Leads.findOne({
-      where: {
-        formName: "NewsLetter",
-        formData: {
-          email: formData.email,
-        },
-      },
-    });
-    console.log(existing);
+//     // 🔍 Check if this email already exists in formData.email
+//     const existing = await Leads.findOne({
+//       where: {
+//         formName: "NewsLetter",
+//         formData: {
+//           email: formData.email,
+//         },
+//       },
+//     });
+//     console.log(existing);
 
-    if (existing) {
-      console.log("I exsist");
-      return res
-        .status(409)
-        .json({ message: "This email is already subscribed." });
-    }
+//     if (existing) {
+//       console.log("I exsist");
+//       return res
+//         .status(409)
+//         .json({ message: "This email is already subscribed." });
+//     }
 
-    const newMess = await Leads.create(req.body);
+//     const newMess = await Leads.create(req.body);
 
-    // ✉️ Set up Nodemailer
-    const transporter = nodemailer.createTransport({
-      host: "mail.privateemail.com", // e.g., smtp.mail.yahoo.com, smtp.zoho.com, mail.yourdomain.com
-      port: 587, // or 587 if using STARTTLS
-      secure: false, // true for port 465, false for 587
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-    // Email send attempt
-    try {
-      // 📨 Send welcome email
-      await transporter.sendMail({
-        from: '"Attaplumbing" <support@queuedevelop.com>',
-        to: formData.email,
-        subject: "Thanks for subscribing!",
-        html: `
-<!DOCTYPE html>
-<html lang="en" style="margin:0;padding:0;background-color:#fefefe;">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Attaplumbing</title>
-  </head>
-  <body style="font-family:Arial, sans-serif;background-color:#fefefe;margin:0;padding:0;">
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fefefe;">
-      <tr>
-        <td align="center" style="padding: 40px 20px;">
-          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border:1px solid #ddd;border-radius:8px;padding: 30px;">
-            <!-- Header -->
-            <tr>
-              <td align="center" style="padding-bottom: 20px;">
-                <h1 style="color:#000000;margin:0;font-size:24px;">Welcome to <span style="color:#ed1b24;">Attaplumbing</span> — Smarter Shopping Starts Here</h1>
-              </td>
-            </tr>
+//     // ✉️ Set up Nodemailer
+//     const transporter = nodemailer.createTransport({
+//       host: "mail.privateemail.com", // e.g., smtp.mail.yahoo.com, smtp.zoho.com, mail.yourdomain.com
+//       port: 587, // or 587 if using STARTTLS
+//       secure: false, // true for port 465, false for 587
+//       auth: {
+//         user: process.env.EMAIL_USER,
+//         pass: process.env.EMAIL_PASS,
+//       },
+//     });
+//     // Email send attempt
+//     try {
+//       // 📨 Send welcome email
+//       await transporter.sendMail({
+//         from: '"Attaplumbing" <support@queuedevelop.com>',
+//         to: formData.email,
+//         subject: "Thanks for subscribing!",
+//         html: `
+// <!DOCTYPE html>
+// <html lang="en" style="margin:0;padding:0;background-color:#fefefe;">
+//   <head>
+//     <meta charset="UTF-8" />
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//     <title>Welcome to Attaplumbing</title>
+//   </head>
+//   <body style="font-family:Arial, sans-serif;background-color:#fefefe;margin:0;padding:0;">
+//     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fefefe;">
+//       <tr>
+//         <td align="center" style="padding: 40px 20px;">
+//           <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border:1px solid #ddd;border-radius:8px;padding: 30px;">
+//             <!-- Header -->
+//             <tr>
+//               <td align="center" style="padding-bottom: 20px;">
+//                 <h1 style="color:#000000;margin:0;font-size:24px;">Welcome to <span style="color:#ed1b24;">Attaplumbing</span> — Smarter Shopping Starts Here</h1>
+//               </td>
+//             </tr>
 
-            <!-- Body -->
-            <tr>
-              <td style="color:#000000;font-size:16px;line-height:1.6;padding: 0 20px;">
-                <p style="margin-bottom: 16px;">
-                  Welcome to <strong>Attaplumbing</strong>! 👋<br><br>
-                  Your trusted partner for all plumbing repairs, installations, and maintenance. Whether it's a leaky faucet, clogged drain, or emergency pipe burst, our licensed technicians are ready to help.
-                </p>
-                <p style="margin-bottom: 16px;">
-                  We pride ourselves on:
-                </p>
-                <ul style="margin-bottom: 24px; padding-left: 20px;">
-                  <li>Upfront pricing with no hidden fees</li>
-                  <li>Licensed and insured professionals</li>
-                  <li>Quality workmanship with lasting results</li>
-                </ul>
-                <p style="margin-bottom: 32px; text-align: center;">
-                  Ready to solve your plumbing problems? We're just one call away.
-                </p>
-                <div style="text-align: center;">
-                  <a href="https://www.Attaplumbing.com/contact" style="background-color:#1dede2;color:#000000;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:6px;display:inline-block;">
-                    Contact Us Today
-                  </a>
-                </div>
-              </td>
-            </tr>
+//             <!-- Body -->
+//             <tr>
+//               <td style="color:#000000;font-size:16px;line-height:1.6;padding: 0 20px;">
+//                 <p style="margin-bottom: 16px;">
+//                   Welcome to <strong>Attaplumbing</strong>! 👋<br><br>
+//                   Your trusted partner for all plumbing repairs, installations, and maintenance. Whether it's a leaky faucet, clogged drain, or emergency pipe burst, our licensed technicians are ready to help.
+//                 </p>
+//                 <p style="margin-bottom: 16px;">
+//                   We pride ourselves on:
+//                 </p>
+//                 <ul style="margin-bottom: 24px; padding-left: 20px;">
+//                   <li>Upfront pricing with no hidden fees</li>
+//                   <li>Licensed and insured professionals</li>
+//                   <li>Quality workmanship with lasting results</li>
+//                 </ul>
+//                 <p style="margin-bottom: 32px; text-align: center;">
+//                   Ready to solve your plumbing problems? We're just one call away.
+//                 </p>
+//                 <div style="text-align: center;">
+//                   <a href="https://www.Attaplumbing.com/contact" style="background-color:#1dede2;color:#000000;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:6px;display:inline-block;">
+//                     Contact Us Today
+//                   </a>
+//                 </div>
+//               </td>
+//             </tr>
 
-            <!-- New Section: We're Just Getting Started -->
-            <tr>
-              <td style="padding: 40px 20px 20px; text-align: center; font-size: 16px; color: #000000;">
-                <h2 style="font-size:18px; font-weight:bold; margin-bottom: 12px;">We’re Just Getting Started 🚀</h2>
-                <p style="margin-bottom: 16px;">
-                  Attaplumbing is starting small — handpicking only the suppliers and products we trust.
-                  But we’re adding more OEMs and new finds every day.
-                </p>
-                <p style="margin-bottom: 0;">
-                  Keep checking back for fresh drops, trusted factories, and smarter ways to shop the global supply chain.
-                </p>
-              </td>
-            </tr>
+//             <!-- New Section: We're Just Getting Started -->
+//             <tr>
+//               <td style="padding: 40px 20px 20px; text-align: center; font-size: 16px; color: #000000;">
+//                 <h2 style="font-size:18px; font-weight:bold; margin-bottom: 12px;">We’re Just Getting Started 🚀</h2>
+//                 <p style="margin-bottom: 16px;">
+//                   Attaplumbing is starting small — handpicking only the suppliers and products we trust.
+//                   But we’re adding more OEMs and new finds every day.
+//                 </p>
+//                 <p style="margin-bottom: 0;">
+//                   Keep checking back for fresh drops, trusted factories, and smarter ways to shop the global supply chain.
+//                 </p>
+//               </td>
+//             </tr>
 
-            <!-- Footer / Unsubscribe -->
-            <tr>
-              <td style="padding-top: 40px; text-align: center; font-size: 12px; color: #666;">
-                <p style="margin-bottom: 4px;">You're receiving this email because you signed up for updates from Attaplumbing.</p>
-                <p style="margin-bottom: 8px;">
-                  If you'd rather not receive emails from us, you can
-                  <a href="https://www.Attaplumbingtradepost.com/unsubscribe/${encodeURIComponent(
-                    formData.email
-                  )}" style="color:#ed1b24;text-decoration:underline;">unsubscribe here</a>.
-                </p>
-                <p style="margin: 4px 0;">Attaplumbing</p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>
-        `,
-      });
+//             <!-- Footer / Unsubscribe -->
+//             <tr>
+//               <td style="padding-top: 40px; text-align: center; font-size: 12px; color: #666;">
+//                 <p style="margin-bottom: 4px;">You're receiving this email because you signed up for updates from Attaplumbing.</p>
+//                 <p style="margin-bottom: 8px;">
+//                   If you'd rather not receive emails from us, you can
+//                   <a href="https://www.Attaplumbingtradepost.com/unsubscribe/${encodeURIComponent(
+//                     formData.email
+//                   )}" style="color:#ed1b24;text-decoration:underline;">unsubscribe here</a>.
+//                 </p>
+//                 <p style="margin: 4px 0;">Attaplumbing</p>
+//               </td>
+//             </tr>
+//           </table>
+//         </td>
+//       </tr>
+//     </table>
+//   </body>
+// </html>
+//         `,
+//       });
 
-      res.status(200).json(newMess);
-    } catch (emailErr) {
-      console.error("❌ Email sending failed:", emailErr);
-      return res
-        .status(500)
-        .json({ message: "Subscription saved, but email failed to send." });
-    }
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//       res.status(200).json(newMess);
+//     } catch (emailErr) {
+//       console.error("❌ Email sending failed:", emailErr);
+//       return res
+//         .status(500)
+//         .json({ message: "Subscription saved, but email failed to send." });
+//     }
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
-router.get("/test-email", async (req, res) => {
-  try {
-    const transporter = nodemailer.createTransport({
-      host: "mail.privateemail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+// router.get("/test-email", async (req, res) => {
+//   try {
+//     const transporter = nodemailer.createTransport({
+//       host: "mail.privateemail.com",
+//       port: 587,
+//       secure: false,
+//       auth: {
+//         user: process.env.EMAIL_USER,
+//         pass: process.env.EMAIL_PASS,
+//       },
+//     });
 
-    await transporter.sendMail({
-      from: '"Test" <support@queuedevelop.com>',
-      to: "quentinhnilica@gmail.com",
-      subject: "SMTP Test",
-      text: `<!DOCTYPE html>
-<html lang="en" style="margin:0;padding:0;background-color:#fefefe;">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Attaplumbing</title>
-  </head>
-  <body style="font-family:Arial, sans-serif;background-color:#fefefe;margin:0;padding:0;">
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fefefe;">
-      <tr>
-        <td align="center" style="padding: 40px 20px;">
-          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border:1px solid #ddd;border-radius:8px;padding: 30px;">
-            <!-- Header -->
-            <tr>
-              <td align="center" style="padding-bottom: 20px;">
-                <h1 style="color:#000000;margin:0;font-size:24px;">Welcome to <span style="color:#ed1b24;">Attaplumbing</span> — Smarter Shopping Starts Here</h1>
-              </td>
-            </tr>
+//     await transporter.sendMail({
+//       from: '"Test" <support@queuedevelop.com>',
+//       to: "quentinhnilica@gmail.com",
+//       subject: "SMTP Test",
+//       text: `<!DOCTYPE html>
+// <html lang="en" style="margin:0;padding:0;background-color:#fefefe;">
+//   <head>
+//     <meta charset="UTF-8" />
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//     <title>Welcome to Attaplumbing</title>
+//   </head>
+//   <body style="font-family:Arial, sans-serif;background-color:#fefefe;margin:0;padding:0;">
+//     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fefefe;">
+//       <tr>
+//         <td align="center" style="padding: 40px 20px;">
+//           <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border:1px solid #ddd;border-radius:8px;padding: 30px;">
+//             <!-- Header -->
+//             <tr>
+//               <td align="center" style="padding-bottom: 20px;">
+//                 <h1 style="color:#000000;margin:0;font-size:24px;">Welcome to <span style="color:#ed1b24;">Attaplumbing</span> — Smarter Shopping Starts Here</h1>
+//               </td>
+//             </tr>
 
-            <!-- Body -->
-            <tr>
-              <td style="color:#000000;font-size:16px;line-height:1.6;padding: 0 20px;">
-                <p style="margin-bottom: 16px;">
-                  Welcome to <strong>Attaplumbing</strong>! 👋<br><br>
-                  Your trusted partner for all plumbing repairs, installations, and maintenance. Whether it's a leaky faucet, clogged drain, or emergency pipe burst, our licensed technicians are ready to help.
-                </p>
-                <p style="margin-bottom: 16px;">
-                  We pride ourselves on:
-                </p>
-                <ul style="margin-bottom: 24px; padding-left: 20px;">
-                  <li>24/7 emergency service</li>
-                  <li>Upfront pricing with no hidden fees</li>
-                  <li>Licensed and insured professionals</li>
-                  <li>Quality workmanship with lasting results</li>
-                </ul>
-                <p style="margin-bottom: 32px; text-align: center;">
-                  Ready to solve your plumbing problems? We're just one call away.
-                </p>
-                <div style="text-align: center;">
-                  <a href="https://www.Attaplumbing.com/contact" style="background-color:#1dede2;color:#000000;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:6px;display:inline-block;">
-                    Contact Us Today
-                  </a>
-                </div>
-              </td>
-            </tr>
-            <!-- New Section: We're Just Getting Started -->
-            <tr>
-              <td style="padding: 40px 20px 20px; text-align: center; font-size: 16px; color: #000000;">
-                <h2 style="font-size:18px; font-weight:bold; margin-bottom: 12px;">We’re Just Getting Started 🚀</h2>
-                <p style="margin-bottom: 16px;">
-                  Attaplumbing is starting small — handpicking only the suppliers and products we trust.
-                  But we’re adding more OEMs and new finds every day.
-                </p>
-                <p style="margin-bottom: 0;">
-                  Keep checking back for fresh drops, trusted factories, and smarter ways to shop the global supply chain.
-                </p>
-              </td>
-            </tr>
+//             <!-- Body -->
+//             <tr>
+//               <td style="color:#000000;font-size:16px;line-height:1.6;padding: 0 20px;">
+//                 <p style="margin-bottom: 16px;">
+//                   Welcome to <strong>Attaplumbing</strong>! 👋<br><br>
+//                   Your trusted partner for all plumbing repairs, installations, and maintenance. Whether it's a leaky faucet, clogged drain, or emergency pipe burst, our licensed technicians are ready to help.
+//                 </p>
+//                 <p style="margin-bottom: 16px;">
+//                   We pride ourselves on:
+//                 </p>
+//                 <ul style="margin-bottom: 24px; padding-left: 20px;">
+//                   <li>24/7 emergency service</li>
+//                   <li>Upfront pricing with no hidden fees</li>
+//                   <li>Licensed and insured professionals</li>
+//                   <li>Quality workmanship with lasting results</li>
+//                 </ul>
+//                 <p style="margin-bottom: 32px; text-align: center;">
+//                   Ready to solve your plumbing problems? We're just one call away.
+//                 </p>
+//                 <div style="text-align: center;">
+//                   <a href="https://www.Attaplumbing.com/contact" style="background-color:#1dede2;color:#000000;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:6px;display:inline-block;">
+//                     Contact Us Today
+//                   </a>
+//                 </div>
+//               </td>
+//             </tr>
+//             <!-- New Section: We're Just Getting Started -->
+//             <tr>
+//               <td style="padding: 40px 20px 20px; text-align: center; font-size: 16px; color: #000000;">
+//                 <h2 style="font-size:18px; font-weight:bold; margin-bottom: 12px;">We’re Just Getting Started 🚀</h2>
+//                 <p style="margin-bottom: 16px;">
+//                   Attaplumbing is starting small — handpicking only the suppliers and products we trust.
+//                   But we’re adding more OEMs and new finds every day.
+//                 </p>
+//                 <p style="margin-bottom: 0;">
+//                   Keep checking back for fresh drops, trusted factories, and smarter ways to shop the global supply chain.
+//                 </p>
+//               </td>
+//             </tr>
 
-            <!-- Footer / Unsubscribe -->
-            <tr>
-              <td style="padding-top: 40px; text-align: center; font-size: 12px; color: #666;">
-                <p style="margin-bottom: 4px;">You're receiving this email because you signed up for updates from Attaplumbing.</p>
-                <p style="margin-bottom: 8px;">
-                  If you'd rather not receive emails from us, you can
-                  <a href="https://www.Attaplumbingtradepost.com/unsubscribe/" style="color:#ed1b24;text-decoration:underline;">unsubscribe here</a>.
-                </p>
-                <p style="margin: 4px 0;">Attaplumbing</p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>
-        `,
-    });
+//             <!-- Footer / Unsubscribe -->
+//             <tr>
+//               <td style="padding-top: 40px; text-align: center; font-size: 12px; color: #666;">
+//                 <p style="margin-bottom: 4px;">You're receiving this email because you signed up for updates from Attaplumbing.</p>
+//                 <p style="margin-bottom: 8px;">
+//                   If you'd rather not receive emails from us, you can
+//                   <a href="https://www.Attaplumbingtradepost.com/unsubscribe/" style="color:#ed1b24;text-decoration:underline;">unsubscribe here</a>.
+//                 </p>
+//                 <p style="margin: 4px 0;">Attaplumbing</p>
+//               </td>
+//             </tr>
+//           </table>
+//         </td>
+//       </tr>
+//     </table>
+//   </body>
+// </html>
+//         `,
+//     });
 
-    res.send("Test email sent");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("SMTP test failed");
-  }
-});
+//     res.send("Test email sent");
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send("SMTP test failed");
+//   }
+// });
 
 // Route to check if a category exists by name
 // router.get("/categories/check", async (req, res) => {
@@ -869,29 +869,30 @@ router.post("/upload", (req, res) => {
   });
 });
 
-router.post("/createMyUser", async (req, res) => {
-  try {
-    const CreateNew = {
-      username: "Dace",
-      email: "dace@ragfrogrevival.com",
-      password: "SuperPass123!",
-      isAdmin: true,
-    };
+// router.post("/createMyUser", async (req, res) => {
+//   try {
+//     const CreateNew = {
+//       username: "Dace",
+//       email: "dace@ragfrogrevival.com",
+//       password: "SuperPass123!",
+//       isAdmin: true,
+//     };
 
-    const userData = await User.create(req.body);
+//     const userData = await User.create(req.body);
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.logged_in = true;
 
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//       res.status(200).json(userData);
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 // Disclosure Routes
+
 router.get("/privacy", async (req, res) => {
   res.render("privacy");
 });

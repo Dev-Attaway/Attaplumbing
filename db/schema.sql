@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS ragfrog_DB;
-CREATE DATABASE ragfrog_DB;
+DROP DATABASE IF EXISTS attaplumbing;
+CREATE DATABASE attaplumbing;
 
 
-use ragfrog_DB;
+use attaplumbing;
