@@ -15,11 +15,10 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const axios = require("axios");
-const csv = require('csv-parser');
+const csv = require("csv-parser");
 // const { where } = require("sequelize");
 
-const upload = multer({ dest: './public/assets/uploads' })
-
+const upload = multer({ dest: "./public/assets/uploads" });
 
 const { CPANEL_TOKEN, CPANEL_USERNAME, CPANEL_URL, AWSTATS } = process.env;
 const awstatsDir = AWSTATS;
@@ -45,7 +44,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/csv-import", async(req,res) =>{
+/*router.get("/csv-import", async(req,res) =>{
   res.render("adminCSVUpload");
 })
 
@@ -374,7 +373,7 @@ router.delete("/editProduct/:id/deleteProduct", async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
+});*/
 
 router.get("/newUser", async (req, res) => {
   res.render("createUser");
@@ -769,29 +768,31 @@ function normalizeDate(inputDate) {
   return inputDate.replace(/-/g, ""); // Convert YYYY-MM-DD to YYYYMMDD
 }
 
-
-router.get('/leads', async (req, res) => {
+router.get("/leads", async (req, res) => {
   try {
     const { formName } = req.query;
     let filter = {};
     if (formName) filter = { where: { formName } };
 
     const leadsDB = await Leads.findAll(filter);
-    const myLeads= leadsDB.map((lead) => lead.get({ plain: true }));
-    const formNamesDB = await Leads.findAll({ attributes: ['formName'], group: ['formName'] });
-    const formNames= formNamesDB.map((fname) => fname.get({ plain: true }));
-    res.render('adminLeads', { myLeads,formNames });
+    const myLeads = leadsDB.map((lead) => lead.get({ plain: true }));
+    const formNamesDB = await Leads.findAll({
+      attributes: ["formName"],
+      group: ["formName"],
+    });
+    const formNames = formNamesDB.map((fname) => fname.get({ plain: true }));
+    res.render("adminLeads", { myLeads, formNames });
   } catch (err) {
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 // Delete lead route
-router.post('/leads/delete/:id', async (req, res) => {
+router.post("/leads/delete/:id", async (req, res) => {
   try {
     await Leads.destroy({ where: { id: req.params.id } });
-    res.redirect('/admin/leads');
+    res.redirect("/admin/leads");
   } catch (err) {
-    res.status(500).send('Server Error'); 
+    res.status(500).send("Server Error");
   }
 });
 
