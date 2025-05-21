@@ -51,39 +51,9 @@ router.use((req, res, next) => {
   next(); // Proceed to the next middleware or route
 });
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const productsDb = await Product.findAll({
-//       where: {
-//         featured: true,
-//         activeUnit: true,
-//       },
-//       include: [
-//         {
-//           model: Category, // Include the Category model
-//         },
-//         {
-//           model: SubCategory, // Include the SubCategory model through ProductSubCategory
-//           through: {
-//             model: ProductSubCategory, // This is the join table model
-//             attributes: [], // Exclude attributes from the join table, optional
-//           },
-//         },
-//       ],
-//     });
-
-//     // Convert Sequelize instances to plain JavaScript objects
-
-//     // instance of product to plain JavaScript objects
-//     const products = productsDb.map((product) => product.get({ plain: true }));
-
-//     res.render("newsSplash", {
-//       products,
-//     });
-//   } catch (error) {
-//     res.render("home");
-//   }
-// });
+router.get("/", async (req, res) => {
+  res.render("about");
+});
 
 // router.get("/home", async (req, res) => {
 //   try {
