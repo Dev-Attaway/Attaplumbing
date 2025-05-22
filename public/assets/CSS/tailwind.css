@@ -8535,6 +8535,10 @@ html:has(.drawer-open.drawer-open) {
   display: none;
 }
 
+.aspect-\[16\/9\] {
+  aspect-ratio: 16/9;
+}
+
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
