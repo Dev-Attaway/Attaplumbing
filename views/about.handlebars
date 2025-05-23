@@ -1,237 +1,167 @@
 <div class="bg-base-100 min-h-screen">
-  <!-- Modern Hero Section -->
-  <div class="relative overflow-hidden bg-base-100 border-2 border-base-300">
-    <div
-      class="container mx-auto px-4 py-24 lg:py-32 flex flex-col lg:flex-row items-center gap-12 relative z-10"
-    >
-      <!-- Text Content -->
-      <div class="lg:w-1/2 space-y-6">
-        <h1
-          class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight font-DMsans"
-        >
-          <span class="!text-primary mb-2">Expert Plumbing</span>
-          <br />
-          <span class="text-accent">Repairs & Services</span>
-        </h1>
-
-        <p
-          class="text-lg sm:text-xl text-black opacity-90 font-medium max-w-2xl font-poppins"
-        >
-          Licensed, insured plumbing professionals serving your community with
-          reliable repairs, installations, and 24/7 emergency service.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <a href="#contact" class="btn btn-accent btn-lg rounded-full px-8 font-poppins hover:bg-white hover:text-primary">
-            Call Now
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-2"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
-              />
-            </svg>
-          </a>
-          <a
-            href="#services"
-            class="btn btn-outline btn-lg bg-base-300 rounded-full px-8 font-poppins text-white border-black hover:bg-white hover:text-primary"
-          >
-            Our Services
-          </a>
-        </div>
+  <!-- Modern Hero Section - Improved Mobile Layout -->
+  <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-24 flex flex-col lg:flex-row items-center gap-4 sm:gap-8 lg:gap-12 relative z-10">
+    <!-- Text Content - Better mobile text sizing -->
+    <div class="lg:w-1/2 space-y-3 sm:space-y-4 lg:space-y-6 order-2 lg:order-1 mt-6 lg:mt-0">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight font-DMsans">
+        <span class="!text-primary">Expert Plumbing</span>
+        <span class="text-accent block mt-1 sm:mt-2">Repairs & Services</span>
+      </h1>
+      
+      <!-- Adjusted paragraph text size -->
+      <p class="text-sm sm:text-base lg:text-lg text-black opacity-90 font-medium max-w-2xl font-poppins">
+        Licensed, insured plumbing professionals serving your community...
+      </p>
+      
+      <!-- Stack buttons vertically on mobile -->
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 pt-2 sm:pt-4">
+        <a href="#contact" class="btn btn-primary btn-sm sm:btn-md rounded-full px-4 sm:px-6 font-poppins">
+          Schedule Service
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="tel:+16192103877" class="btn btn-outline btn-sm sm:btn-md rounded-full px-4 sm:px-6 font-poppins mt-2 sm:mt-0">
+          Call Now
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+          </svg>
+        </a>
       </div>
-
-      <!-- Plumbing Image -->
-      <div class="lg:w-1/2 flex justify-center">
-        <div class="relative w-full max-w-xl">
-          <div
-            class="aspect-[16/9] bg-base-100/10 rounded-2xl overflow-hidden"
-          >
-            <img
-              src="/assets/imgs/attaplumbing_logo.webp"
-              alt="Attaplumbing professional at work"
-              class="object-contain w-full h-full"
-              loading="lazy"
-            />
-          </div>
-        </div>
+    </div>
+    
+    <!-- Image Section - Better mobile scaling -->
+    <div class="lg:w-1/2 w-full order-1 lg:order-2">
+      <div class="aspect-[4/3] sm:aspect-[5/3] lg:aspect-[16/9]">
+        <img
+          src="/assets/imgs/attaplumbing_logo.webp"
+          alt="Attaplumbing professional"
+          class="object-contain w-full h-full"
+          loading="lazy"
+          width="600"
+          height="400"
+        />
       </div>
     </div>
   </div>
-  <!-- About Card Section -->
-  <div class="bg-base-200/90 border-2 border-t-0 border-base-300">
-      <div class="mx-auto">
-        <div class="overflow-hidden">
-          <div class="p-8 sm:p-10">
-            <div class="flex flex-col md:flex-row gap-8 items-center">
-              <div class="w-full md:w-1/3 flex justify-center">
-                <div class="w-40 h-40 bg-primary/10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m1.745 1.437l4.26-4.26a3 3 0 00-4.26 4.26z" />
-                  </svg>
+
+  <!-- About Card Section - Mobile Optimized -->
+  <div class="bg-base-200/90 border-2 border-base-300">
+    <div class="mx-auto">
+      <div class="overflow-hidden">
+        <div class="p-4 sm:p-6 lg:p-8">
+          <div class="flex flex-col md:flex-row gap-4 sm:gap-6 lg:gap-8 items-center">
+            <div class="w-full md:w-1/3 flex justify-center">
+              <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-primary/10 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 sm:h-16 lg:h-20 w-12 sm:w-16 lg:w-20 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m1.745 1.437l4.26-4.26a3 3 0 00-4.26 4.26z" />
+                </svg>
+              </div>
+            </div>
+            <div class="w-full md:w-2/3">
+              <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-base-content mb-3 sm:mb-4 font-DMsans">Trusted Plumbing Experts Since 2002</h3>
+              <div class="card bg-base-100 mb-6 sm:mb-8 lg:mb-10 border border-primary">
+                <div class="card-body p-4 sm:p-6">
+                  <p class="text-base-content/80 text-sm sm:text-base lg:text-lg font-poppins font-medium">
+                    For 22 years, AttaPlumbing has been San Diego's trusted plumbing specialist, delivering exceptional service for both residential and commercial properties.
+                  </p>
+
+                  <p class="text-base-content/80 text-base sm:text-lg lg:text-xl font-DMsans font-semibold mt-3 sm:mt-4">
+                    We provide comprehensive solutions for:
+                  </p>
+
+                  <ul class="list-decimal list-inside text-base-content/80 font-poppins text-sm sm:text-base lg:text-lg font-medium mt-1 sm:mt-2 ml-3 sm:ml-4 space-y-1">
+                    <li>Sewer line repairs and replacements</li>
+                    <li>Fireplace retrofits and gas line re-piping</li>
+                    <li>Water heater installations</li>
+                    <li>Clogged drain clearing</li>
+                    <li>Water pressure diagnostics</li>
+                  </ul>                      
                 </div>
               </div>
-              <div class="w-full md:w-2/3">
-                <h3 class="text-2xl font-bold text-base-content mb-4 font-DMsans">Trusted Plumbing Experts Since 2002</h3>
-                <div class="card bg-base-100 mb-10 border border-primary">
-                  <div class="card-body">
-                    <p class="text-base-content/80 text-lg font-poppins font-medium">
-                      For 22 years, AttaPlumbing has been San Diego's trusted plumbing specialist, delivering exceptional service for both residential and commercial properties. Our skilled technicians expertly handle all plumbing challenges - from emergency repairs to complex installations.
-                    </p>
 
-                    <p class="text-base-content/80 text-xl font-DMsans font-semibold mt-4">
-                      We provide comprehensive solutions for:
-                    </p>
+              <div class="card bg-base-100 border border-primary">
+                <div class="card-body p-4 sm:p-6">
+                  <p class="text-base-content/80 font-DMsans text-base sm:text-lg lg:text-xl font-semibold">
+                    Our process ensures complete satisfaction:
+                  </p>
 
-                    <ul class="list-decimal list-inside text-base-content/80 font-poppins text-lg font-medium mt-2 ml-4 space-y-1">
-                      <li>Sewer line repairs and replacements</li>
-                      <li>Fireplace retrofits and gas line re-piping</li>
-                      <li>Water heater installations (traditional and tankless systems)</li>
-                      <li>Clogged drain clearing and pipe repairs</li>
-                      <li>Water pressure diagnostics and solutions</li>
-                    </ul>                      
-                  </div>
+                  <ol class="list-decimal list-inside text-base-content/80 font-poppins text-sm sm:text-base lg:text-lg font-medium mt-1 sm:mt-2 ml-3 sm:ml-4 space-y-1">
+                    <li>Personalized consultation</li>
+                    <li>Professional recommendations</li>
+                    <li>Precise installation</li>
+                    <li>System demonstration</li>
+                  </ol>
+
+                  <p class="text-base-content/80 font-poppins text-sm sm:text-base lg:text-lg font-medium mt-3 sm:mt-4">
+                    Contact us today for reliable plumbing solutions backed by decades of expertise.
+                  </p>
                 </div>
-
-                <div class="card bg-base-100 border border-primary">
-                  <div class="card-body">
-                    <p class="text-base-content/80 font-DMsans text-xl font-semibold mt-4">
-                      Our process ensures complete satisfaction:
-                    </p>
-
-                    <ol class="list-decimal list-inside text-base-content/80 font-poppins text-lg font-medium mt-2 ml-4 space-y-1">
-                      <li>Personalized consultation to understand your needs</li>
-                      <li>Professional recommendations for optimal solutions</li>
-                      <li>Precise installation by licensed technicians</li>
-                      <li>Thorough system demonstration and walkthrough</li>
-                    </ol>
-
-                    <p class="text-base-content/80 font-poppins text-lg font-medium mt-4">
-                      As your full-service San Diego plumber, we guarantee you'll be completely confident using your new system before we leave. Contact us today for reliable plumbing solutions backed by decades of expertise.
-                    </p>
-                  </div>
               </div>                 
-              <div class="mt-6 flex justify-center md:justify-end">
-                  <a href="#contact" class="btn btn-primary text-xl font-poppins rounded-full px-8">
-                    Contact Our Experts
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                </div>
+              <div class="mt-4 sm:mt-6 flex justify-center md:justify-end">
+                <a href="#contact" class="btn btn-sm sm:btn-md btn-primary text-sm sm:text-base lg:text-lg font-poppins rounded-md px-4 sm:px-6 lg:px-8">
+                  Contact Our Experts
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-1 sm:ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
-  <!-- Services Section -->
-  <div
-    class="py-16 sm:py-24 bg-gradient-to-br from-primary to-primary-focus border-t-0 border-2 border-base-300"
-    id="services"
-  >
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-DMsans font-bold text-base-content mb-4">
+
+  <!-- Services Section - Mobile Optimized -->
+  <div class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary to-primary-focus border-t-0 border-2 border-base-300" id="services">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-DMsans font-bold text-base-content mb-3 sm:mb-4">
           Our Plumbing Services
         </h2>
-        <p class="text-lg text-base-content/80 font-bold font-poppins">
+        <p class="text-base sm:text-lg text-base-content/80 font-bold font-poppins">
           Comprehensive solutions for residential and commercial plumbing needs.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <!-- Service 1 -->
-        <div
-          class="bg-base-100 p-8 rounded-xl hover:shadow-lg transition-all duration-300"
-        >
-          <div
-            class="w-14 h-14 bg-primary text-primary rounded-lg flex items-center justify-center mb-6"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-              />
+        <div class="bg-base-100 p-4 sm:p-6 rounded-xl hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-primary text-primary rounded-lg flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
             </svg>
           </div>
-          <h3 class="text-xl font-extrabold mb-3 font-DMsans">Fixture Installation</h3>
-          <p class="text-base-content/90 font-poppins font-semibold">
-            Expert installation of sinks, toilets, showers, water heaters and
-            other fixtures.
+          <h3 class="text-lg sm:text-xl font-extrabold mb-2 sm:mb-3 font-DMsans text-center">Fixture Installation</h3>
+          <p class="text-base-content/90 font-poppins font-semibold text-sm sm:text-base text-center">
+            Expert installation of sinks, toilets, showers, water heaters and other fixtures.
           </p>
         </div>
 
         <!-- Service 2 -->
-        <div
-          class="bg-base-100 p-8 rounded-xl hover:shadow-lg transition-all duration-300"
-        >
-          <div
-            class="w-14 h-14 bg-primary text-primary rounded-lg flex items-center justify-center mb-6"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
-              />
+        <div class="bg-base-100 p-4 sm:p-6 rounded-xl hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-primary text-primary rounded-lg flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
             </svg>
           </div>
-          <h3 class="text-xl font-extrabold mb-3 font-DMsans">Drain Cleaning</h3>
-          <p class="text-base-content/90 font-poppins font-semibold">
-            Professional drain and sewer line cleaning using advanced
-            hydro-jetting technology.
+          <h3 class="text-lg sm:text-xl font-extrabold mb-2 sm:mb-3 font-DMsans text-center">Drain Cleaning</h3>
+          <p class="text-base-content/90 font-poppins font-semibold text-sm sm:text-base text-center">
+            Professional drain and sewer line cleaning using advanced hydro-jetting technology.
           </p>
         </div>
 
         <!-- Service 3 -->
-        <div
-          class="bg-base-100 p-8 rounded-xl hover:shadow-lg transition-all duration-300"
-        >
-          <div
-            class="w-14 h-14 bg-primary text-primary rounded-lg flex items-center justify-center mb-6"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 20h12a2 2 0 002-2V8a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 8h-2m0 0H8m2 0V6"
-              />
+        <div class="bg-base-100 p-4 sm:p-6 rounded-xl hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-primary text-primary rounded-lg flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 20h12a2 2 0 002-2V8a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 8h-2m0 0H8m2 0V6" />
             </svg>
           </div>
-          <h3 class="text-xl font-extrabold mb-3 font-DMsans">Much More</h3>
-          <p class="text-base-content/90 font-poppins font-semibold">
+          <h3 class="text-lg sm:text-xl font-extrabold mb-2 sm:mb-3 font-DMsans text-center">Much More</h3>
+          <p class="text-base-content/90 font-poppins font-semibold text-sm sm:text-base text-center">
             Check out <a href="/services" class="underline hover:text-primary transition-all duration-100">Services Page</a> for more information.
           </p>
         </div>
@@ -239,8 +169,8 @@
     </div>
   </div>
 
-  <!-- Locations Section -->
-  <div class="py-16 bg-base-100 border-2 border-t-0 border-base-300 relative">
+  <!-- Locations Section - Mobile Optimized -->
+  <div class="py-8 sm:py-16 bg-base-100 border-2 border-t-0 border-base-300 relative">
     <!-- Background Image -->
     <div class="absolute inset-0 w-full h-full overflow-hidden">
       <img src="/assets/imgs/coolBackground.webp" alt="San Diego area map" 
@@ -252,250 +182,213 @@
 
     <!-- Content -->
     <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-3xl mx-auto text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl text-secondary font-bold font-DMsans mb-4 [text-shadow:_2px_1px_10px_#000000]">
+      <div class="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
+        <h2 class="text-2xl sm:text-4xl text-secondary font-bold font-DMsans mb-4 [text-shadow:_2px_1px_10px_#000000]">
           Our Service Areas
         </h2>
-        <p class="text-lg text-secondary font-semibold font-poppins [text-shadow:_2px_1px_10px_#000000]" >
+        <p class="text-base sm:text-lg text-secondary font-semibold font-poppins [text-shadow:_2px_1px_10px_#000000]">
           Proudly serving these communities in San Diego County
         </p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        <!-- Location Cards -->
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
+        <!-- Location Cards - All with mobile-optimized SVGs -->
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">Solana Beach</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Solana Beach</span>
         </div>
         
-        <!-- Repeat for other locations (7 more cards) -->
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">Encinitas</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Encinitas</span>
         </div>
         
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">Del Mar</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Del Mar</span>
         </div>
         
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">San Diego</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">San Diego</span>
         </div>
         
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">Chula Vista</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Chula Vista</span>
         </div>
         
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">National City</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">National City</span>
         </div>
         
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">Imperial Beach</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Imperial Beach</span>
         </div>
         
-        <div class="bg-base-100/90 p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span class="font-semibold font-poppins">Coronado</span>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Coronado</span>
+        </div>
+
+        <!-- Additional Locations -->
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="font-semibold font-poppins text-sm sm:text-base">La Jolla</span>
+        </div>
+
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Pacific Beach</span>
+        </div>
+
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Mission Beach</span>
+        </div>
+
+        <div class="bg-base-100/90 p-3 sm:p-6 rounded-lg border border-base-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-center justify-center backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="font-semibold font-poppins text-sm sm:text-base">Point Loma</span>
         </div>
       </div>
 
-      <div class="mt-12 text-center">
-        <a href="/contact" class="btn btn-primary px-8 py-3 text-lg font-poppins">
+      <div class="mt-8 sm:mt-12 text-center">
+        <a href="/contact" class="btn w-fit h-fit btn-primary px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-lg font-poppins">
           Contact Us for Service in Your Area
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-1 sm:ml-2" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
         </a>
       </div>
     </div>
   </div>
-
-  <!-- Reviews Section -->
-  <div class="py-16 bg-base-200 border-2 border-t-0 border-base-300">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold font-DMsans text-center mb-12">What Our
-        Customers Say</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+  <!-- Reviews Section - Mobile Optimized -->
+  <div class="py-12 sm:py-16 bg-base-200 border-2 border-t-0 border-base-300">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 relative">
+        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-primary rounded-full"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-DMsans text-base-content mb-4">
+          Trusted by San Diego Homeowners
+        </h2>
+        <p class="text-lg sm:text-xl font-poppins text-base-content/80 font-poppins max-w-2xl mx-auto">
+          Don't just take our word for it - hear what our customers say about their experience
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
         {{> yelp}}
         {{> buildZoom}}
       </div>
     </div>
   </div>
 
-  <!-- Why Choose Us -->
-  <div class="py-16 sm:py-24 bg-base-100 border-base-300 border-l-2 border-r-2">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-DMsans font-bold text-base-content mb-4">
+  <!-- Why Choose Us - Mobile Optimized -->
+  <div class="py-12 sm:py-16 lg:py-20 bg-base-100">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl italic font-DMsans font-bold text-base-content mb-4">
           Why Choose Attaplumbing
         </h2>
       </div>
 
-      <div class="flex flex-col md:grid md:grid-cols-3 gap-6">
-        <div
-          class="bg-base-200 p-6 rounded-xl border border-base-300/50 hover:border-primary/30 transition-all border-base-300 border-t-2 border-l-2 border-r-2"
-        >
-          <div
-            class="w-16 h-16 bg-primary text-primary rounded-lg flex items-center justify-center mb-4 mx-auto"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-              />
+      <div class="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-6">
+        <div class="bg-base-200 p-4 sm:p-6 rounded-xl border border-base-300/50 hover:border-primary/30 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary text-primary rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h3 class="text-lg font-semibold font-poppins text-center">Licensed Professionals</h3>
+          <h3 class="text-base sm:text-lg font-semibold font-poppins text-center">Licensed Professionals</h3>
         </div>
 
-        <div
-          class="bg-base-200 p-6 rounded-xl border border-base-300/50 hover:border-primary/30 transition-all"
-        >
-          <div
-            class="w-16 h-16 bg-primary text-primary rounded-lg flex items-center justify-center mb-4 mx-auto"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-              />
+        <div class="bg-base-200 p-4 sm:p-6 rounded-xl border border-base-300/50 hover:border-primary/30 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary text-primary rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
             </svg>
           </div>
-          <h3 class="text-lg font-semibold font-poppins text-center">Upfront Pricing</h3>
+          <h3 class="text-base sm:text-lg font-semibold font-poppins text-center">Upfront Pricing</h3>
         </div>
 
-        <div
-          class="bg-base-200 p-6 rounded-xl border border-base-300/50 hover:border-primary/30 transition-all"
-        >
-          <div
-            class="w-16 h-16 bg-primary text-primary rounded-lg flex items-center justify-center mb-4 mx-auto"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 13l4 4L19 7"
-              />
+        <div class="bg-base-200 p-4 sm:p-6 rounded-xl border border-base-300/50 hover:border-primary/30 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary text-primary rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 class="text-lg font-semibold font-poppins text-center">Quality Guarantee</h3>
+          <h3 class="text-base sm:text-lg font-semibold font-poppins text-center">Quality Guarantee</h3>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- CTA Section -->
-  <div
-    id="contact"
-    class="py-16 sm:py-24 bg-gradient-to-br from-primary to-primary-focus border-base-300 border-t-2 border-l-2 border-r-2"
-  >
-    <div class="container mx-auto px-4">
+  <!-- CTA Section - Mobile Optimized -->
+  <div id="contact" class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary to-primary-focus border-base-300 border-2">
+    <div class="container mx-auto px-4 sm:px-6">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl sm:text-4xl font-DMsans font-bold mb-6">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-DMsans font-bold mb-4 sm:mb-6">
           Need a Reliable Plumber?
         </h2>
-        <p
-          class="text-xl opacity-90 mb-8 max-w-3xl mx-auto font-poppins font-semibold"
-        >
-          Contact us today for fast, professional plumbing service you can
-          trust.
+        <p class="text-base sm:text-lg lg:text-xl opacity-90 mb-6 sm:mb-8 max-w-3xl mx-auto font-poppins font-semibold">
+          Contact us today for fast, professional plumbing service you can trust.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="tel:+6192103877"
-            class="btn btn-accent btn-lg rounded-full hover:bg-white hover:text-primary px-8"
-          >
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <a href="tel:+16192103877" class="btn btn-accent btn-sm sm:btn-md lg:btn-lg rounded-full hover:bg-white hover:text-primary px-4 sm:px-6 lg:px-8">
             <span class="font-poppins font-semibold">
               Call Now: (619) 210-3877
-
             </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-2 hidden md:flex"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-1 sm:ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
             </svg>
           </a>
 
-          <a
-            href="/contact"
-            class="btn btn-outline btn-lg rounded-full px-8 border-white hover:bg-white hover:text-primary"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 mr-2"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-              />
-              <path
-                d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-              />
+          <a href="/contact" class="btn btn-outline btn-sm sm:btn-md lg:btn-lg rounded-full px-4 sm:px-6 lg:px-8 border-white hover:bg-white hover:text-primary mt-2 sm:mt-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
             <span class="font-poppins font-semibold">
               Email Us
             </span>
-
           </a>
         </div>
       </div>
