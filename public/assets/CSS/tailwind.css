@@ -9498,6 +9498,10 @@ html:has(.drawer-open.drawer-open) {
   text-align: right;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .font-DMsans {
   font-family: DM Sans, sans-serif;
 }
